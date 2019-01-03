@@ -25,6 +25,8 @@ import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
@@ -68,16 +70,19 @@ public class LoginActivity extends NavigationDrawer implements LoaderCallbacks<C
     private View mProgressView;
     private View mLoginFormView;
 
+    FrameLayout contentFrameLayout;
+    NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_login);
 
-        FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
+        contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         //Remember this is the FrameLayout area within your activity_main.xml
         getLayoutInflater().inflate(R.layout.activity_login, contentFrameLayout);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.getMenu().getItem(1).setChecked(true);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.getMenu().getItem(4).setChecked(true);
 
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
@@ -342,7 +347,7 @@ public class LoginActivity extends NavigationDrawer implements LoaderCallbacks<C
             }
 
             // TODO: register the new account here.
-            return true;
+            return false;
         }
 
         @Override
@@ -352,6 +357,12 @@ public class LoginActivity extends NavigationDrawer implements LoaderCallbacks<C
 
             if (success) {
                 finish();
+
+                Intent intent = new Intent(LoginActivity.this, NavigationDrawer.class);
+                // passing the login status to the main page.
+                intent.putExtra("login_status", "success");
+                startActivity(intent);
+
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
@@ -367,3 +378,4 @@ public class LoginActivity extends NavigationDrawer implements LoaderCallbacks<C
 }
 
 // Paolo Montalto(2017). Android: underlined text in a TextView [online]. avilabele at https://medium.com/@xabaras/android-underlined-text-in-a-textview-ff647d427bab [accessed on 27/12/2018]
+//HLessJonEdu (2016). Beginners Android Studio Tutorial – 41 Template Usage Login Activity [online]. available at https://www.youtube.com/watch?v=jWpH6GWL9cg [access 02/01/2019]

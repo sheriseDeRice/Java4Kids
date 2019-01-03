@@ -74,14 +74,16 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="15sp"
-                android:text="Boy" />
+                android:text="Boy"
+                android:onClick="GenderRadioButtonClicked"/>
             <RadioButton
                 android:id="@+id/girl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="15sp"
-                android:text="Girl" />
+                android:text="Girl"
+                android:onClick="GenderRadioButtonClicked"/>
         </RadioGroup>
 
         <EditText
@@ -131,8 +133,7 @@
             android:id="@+id/checkBox_agreement"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="I understand that my details will be stored privately and will not be shared to a third party.
-            \nThe personal information asked above is only for data collection use."
+            android:text="I understand that my details will be stored privately and will not be shared to a third party. \nThe personal information asked above is only for data collection use."
             android:textSize="15sp"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"

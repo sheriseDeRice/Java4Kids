@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -23,6 +24,10 @@ public class NavigationDrawer extends AppCompatActivity
     Toolbar toolbar;
     DrawerLayout drawer;
     ActionBarDrawerToggle toggle;
+    NavigationView navigationView;
+
+    Bundle bundle;
+    String login_status;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +45,20 @@ public class NavigationDrawer extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        try {
+            // the following collect the data that have been passed from login.
+            bundle = getIntent().getExtras();
+            login_status = bundle.getString("login_status");
+
+            if (login_status.equals("success")) {
+                navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
+                navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
+            }
+        } catch (Exception e){}
+
     }
 
     @Override
@@ -63,6 +80,11 @@ public class NavigationDrawer extends AppCompatActivity
         if (id == R.id.nav_game) {
             // Handle the game action
             Intent intent = new Intent(NavigationDrawer.this, GameActivity.class);
+            try {
+                if (login_status.equals("success")) {
+                    intent.putExtra("login_status", "success");
+                }
+            } catch (Exception e) {}
             startActivity(intent);
 
         } else if (id == R.id.nav_progress) {
@@ -71,6 +93,11 @@ public class NavigationDrawer extends AppCompatActivity
         } else if (id == R.id.nav_friends) {
             // Handle the friends action
             Intent intent = new Intent(NavigationDrawer.this, FriendsActivity.class);
+            try {
+                if (login_status.equals("success")) {
+                    intent.putExtra("login_status", "success");
+                }
+            } catch (Exception e) {}
             startActivity(intent);
 
         } else if (id == R.id.nav_settings) {
@@ -80,7 +107,10 @@ public class NavigationDrawer extends AppCompatActivity
             // Handle the login action
             Intent intent = new Intent(NavigationDrawer.this, LoginActivity.class);
             startActivity(intent);
-
+        } else if (id == R.id.nav_logout){
+            Toast.makeText(this, "Logout success :)", Toast.LENGTH_SHORT).show();
+            navigationView.getMenu().findItem(R.id.nav_login).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(false);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -126,3 +156,5 @@ public class NavigationDrawer extends AppCompatActivity
 // RobinsonProgramming.com (2016). Android Studio - Create Navigation Drawer [online]. Available at https://www.youtube.com/watch?v=ju837bQOBfg [accessed 26/12/2018]
 // _____. Open Activity from Menu Click - Android Studio 2.1.2 [online]. Available at https://www.youtube.com/watch?v=a0sHRM54njg [accessed 26/12/2018]
 // ravinder ganwal(2017). NAVIGATION DRAWER IN EVERY ACTIVITY - ANDROID DEVELOPMENT [online]. available at http://shockingandroid.blogspot.com/2017/04/navigation-drawer-in-every-activity.html [accessed 27/12/2018]
+// Ramkumar N. (2017). Android Changing Menu Items at Run Time [online]. available at https://android.i-visionblog.com/android-changing-menu-items-at-run-time-48970f0cf1b7 [access 02/01/2019]
+// stackoverflow (2017). How to send string from one activity to another? [online]. available at https://stackoverflow.com/questions/18146614/how-to-send-string-from-one-activity-to-another [ access 02/01/2019]

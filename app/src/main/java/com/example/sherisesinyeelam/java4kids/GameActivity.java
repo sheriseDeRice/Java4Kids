@@ -26,7 +26,7 @@ public class GameActivity extends NavigationDrawer {
         //Remember this is the FrameLayout area within your activity_main.xml
         getLayoutInflater().inflate(R.layout.activity_game, contentFrameLayout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.getMenu().getItem(1).setChecked(true);
+        navigationView.getMenu().getItem(0).setChecked(true);
 
         snake_lv1 = (ImageButton) findViewById(R.id.snake_level1);
         snake_lv1.setOnClickListener(new View.OnClickListener() {
