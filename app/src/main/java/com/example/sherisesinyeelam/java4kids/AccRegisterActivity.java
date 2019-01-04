@@ -1,10 +1,12 @@
 package com.example.sherisesinyeelam.java4kids;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,87 +18,132 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 
 public class AccRegisterActivity extends AppCompatActivity {
 
-    private EditText firstname, lastname, age, email, password, pwConfirm;
     private RadioGroup check_gender;
     private RadioButton boy, girl;
     private String gender;
-    private Button submitButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acc_register);
 
+        if (android.os.Build.VERSION.SDK_INT > 9)
+        {
+            StrictMode.ThreadPolicy policy = new
+                    StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
+
         //add back button on the toolbar.
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        firstname = findViewById(R.id.first_name);
-        lastname = findViewById(R.id.last_name);
-        age = findViewById(R.id.age);
+        final EditText firstname = (EditText) findViewById(R.id.first_name);
+        final EditText lastname = (EditText) findViewById(R.id.last_name);
+        final EditText age = (EditText) findViewById(R.id.age);
 
         check_gender = (RadioGroup) findViewById(R.id.gender);
         boy = (RadioButton) findViewById(R.id.boy);
         girl = (RadioButton) findViewById(R.id.girl);
 
-        email = findViewById(R.id.email);
-        password = findViewById(R.id.create_password);
-        pwConfirm = findViewById(R.id.confirm_password);
-        submitButton = findViewById(R.id.submit_button);
+        final EditText email = (EditText) findViewById(R.id.email_address);
+        final EditText password = (EditText) findViewById(R.id.create_password);
+        final EditText pwConfirm = (EditText) findViewById(R.id.confirm_password);
+        final Button submitButton = findViewById(R.id.submit_button);
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                //TODO get gender
+                final String fname = firstname.getText().toString();
+                final String lname = lastname.getText().toString();
+                final int ages = Integer.parseInt(age.getText().toString());
+                final String mail = email.getText().toString();
+                final String pw = password.getText().toString();
+                final String pwCon = pwConfirm.getText().toString();
 
-                try{
-                    final String fname = (String) firstname.getText().toString();
-                    final String lname = (String) lastname.getText().toString();
-                    final String ages = (String) age.getText().toString();
-                    final String mail = (String) email.getText().toString();
-                    final String pw = (String) password.getText().toString();
-                    final String pwCon = (String) pwConfirm.getText().toString();
+                if(pwCon.equals(pw)) {
 
-                    if(pw.equals(pwCon)) {
-                        Response.Listener<String> responseListener = new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                try {
-                                    JSONObject jsonObject = new JSONObject(response);
-                                    Boolean success = jsonObject.getBoolean("success");
+                    AlertDialog.Builder builder = new AlertDialog.Builder(AccRegisterActivity.this);
+                    builder.setMessage("Button clicked")
+                            .create()
+                            .show();
 
-                                    if (success) {
-                                        finish();
-                                        Intent intent = new Intent(AccRegisterActivity.this, LoginActivity.class);
-                                        startActivity(intent);
+                    Response.Listener<String> responseListener = new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
 
-                                    } else {
-                                        AlertDialog.Builder builder = new AlertDialog.Builder(AccRegisterActivity.this);
-                                        builder.setMessage("Register fail :(")
-                                                .setNegativeButton("Retry", null)
-                                                .create()
-                                                .show();
-                                    }
+                            Log.e(AccRegisterActivity.class.getSimpleName(), "in onResponse" + response.toString());
 
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
+                            try {
+                                JSONObject jsonObject = new JSONObject(response);
+                                boolean success = jsonObject.getBoolean("success");
+
+                                System.out.println("in try");
+
+                                if (success) {
+
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(AccRegisterActivity.this);
+                                    builder.setMessage("Register Successful!")
+                                            .setPositiveButton("Login", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    AlertDialog.Builder builder = new AlertDialog.Builder(AccRegisterActivity.this);
+                                                    builder.setMessage("Login success")
+                                                            .create()
+                                                            .show();
+                                                    Intent intent = new Intent(AccRegisterActivity.this, NavigationDrawer.class);
+                                                    // passing the login status to the main page.
+                                                    intent.putExtra("login_status", "success");
+                                                    startActivity(intent);
+                                                }
+                                            })
+                                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                                @Override
+                                                public void onClick(DialogInterface dialog, int which) {
+                                                    //  Action for 'Cancel' Button
+                                                    dialog.cancel();
+                                                }
+                                            })
+                                            .create()
+                                            .show();
+
+                                    Intent intent = new Intent(AccRegisterActivity.this, LoginActivity.class);
+                                    startActivity(intent);
+
+                                } else {
+                                    AlertDialog.Builder builder = new AlertDialog.Builder(AccRegisterActivity.this);
+                                    builder.setMessage("Register fail :(")
+                                            .setNegativeButton("Retry", null)
+                                            .create()
+                                            .show();
                                 }
-                            }
-                        };
 
-                        RegisterAccRequest registerAccRequest = new RegisterAccRequest(fname, lname, ages, mail, pw, responseListener);
-                        RequestQueue queue = Volley.newRequestQueue(AccRegisterActivity.this);
-                        queue.add(registerAccRequest);
-                    }
-                } catch (Exception e){}
+                            } catch (JSONException e) {
+                                System.out.println("in catch");
+                                e.printStackTrace();
+                            }
+                        }
+                    };
+
+                    Response.ErrorListener errorListener = new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.e(AccRegisterActivity.class.getSimpleName(), "Error at response : " + error.getMessage());
+
+                        }
+                    };
+
+                    RegisterAccRequest registerAccRequest = new RegisterAccRequest(fname, lname, ages, gender, mail, pw, responseListener, errorListener);
+                    RequestQueue queue = Volley.newRequestQueue(AccRegisterActivity.this);
+                    queue.add(registerAccRequest);
+                }
 
                 return;
             }
@@ -138,3 +185,4 @@ public class AccRegisterActivity extends AppCompatActivity {
 
 
 // Kuray Ogun (2016). Android Notes 24 : How to add Back Button at Toolbar [online]. available at https://freakycoder.com/android-notes-24-how-to-add-back-button-at-toolbar-941e6577418e [accessed 27/12/2018]
+// Tonikami TV (2016). Android Studio Tutorial - NEW Login Register #3 - Server & Database [online]. https://www.youtube.com/watch?v=JQXfIidfFMo [ access 03/01/2019]

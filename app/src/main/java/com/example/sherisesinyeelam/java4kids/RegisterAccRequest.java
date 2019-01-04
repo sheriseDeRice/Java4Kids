@@ -12,15 +12,15 @@ public class RegisterAccRequest extends StringRequest{
     private static final String REGISTER_REQUEST_URL = "http://sinyeelam.com/register.php";
     private Map<String, String> params;
 
-    public RegisterAccRequest(String firstname, String lastname, String age, String email, String password,  Response.Listener<String> listener){
+    public RegisterAccRequest(String firstname, String lastname, int age, String gender, String email, String password, Response.Listener<String> listener, Response.ErrorListener errorListener){
 
-        super(Method.POST, REGISTER_REQUEST_URL, listener, null);
+        super(Method.POST, REGISTER_REQUEST_URL, listener, errorListener);
 
         params = new HashMap<>();
         params.put("firstname", firstname);
         params.put("lastname", lastname);
-        params.put("age", age);
-        //params.put("gender", gender);
+        params.put("age", age + "");
+        params.put("gender", gender);
         params.put("email", email);
         params.put("password", password);
 
