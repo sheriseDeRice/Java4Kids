@@ -3,13 +3,11 @@ package com.example.sherisesinyeelam.java4kids;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Paint;
 import android.support.annotation.NonNull;
 
-import android.app.Activity;
 import android.app.LoaderManager.LoaderCallbacks;
 
 import android.content.CursorLoader;
@@ -22,11 +20,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.design.widget.NavigationView;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
@@ -111,6 +106,7 @@ public class LoginActivity extends NavigationDrawer implements LoaderCallbacks<C
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
 
+        // register ne user
         TextView registerLink = (TextView) findViewById(R.id.registerMe);
         registerLink.setPaintFlags(registerLink.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         registerLink.setOnClickListener(new View.OnClickListener() {
@@ -357,7 +353,6 @@ public class LoginActivity extends NavigationDrawer implements LoaderCallbacks<C
 
             if (success) {
                 finish();
-
                 Intent intent = new Intent(LoginActivity.this, NavigationDrawer.class);
                 // passing the login status to the main page.
                 intent.putExtra("login_status", "success");
@@ -378,4 +373,4 @@ public class LoginActivity extends NavigationDrawer implements LoaderCallbacks<C
 }
 
 // Paolo Montalto(2017). Android: underlined text in a TextView [online]. avilabele at https://medium.com/@xabaras/android-underlined-text-in-a-textview-ff647d427bab [accessed on 27/12/2018]
-//HLessJonEdu (2016). Beginners Android Studio Tutorial – 41 Template Usage Login Activity [online]. available at https://www.youtube.com/watch?v=jWpH6GWL9cg [access 02/01/2019]
+// HLessJonEdu (2016). Beginners Android Studio Tutorial – 41 Template Usage Login Activity [online]. available at https://www.youtube.com/watch?v=jWpH6GWL9cg [access 02/01/2019]

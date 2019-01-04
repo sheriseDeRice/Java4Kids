@@ -7,12 +7,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class RegisterAccRequest extends StringRequest{
+public class AccRegisterRequest extends StringRequest{
 
     private static final String REGISTER_REQUEST_URL = "http://sinyeelam.com/register.php";
     private Map<String, String> params;
 
-    public RegisterAccRequest(String firstname, String lastname, int age, String gender, String email, String password, Response.Listener<String> listener, Response.ErrorListener errorListener){
+    public AccRegisterRequest(String firstname, String lastname, int age, String gender, String email, String password, Response.Listener<String> listener, Response.ErrorListener errorListener){
 
         super(Method.POST, REGISTER_REQUEST_URL, listener, errorListener);
 

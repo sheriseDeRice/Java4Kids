@@ -2,18 +2,16 @@ package com.example.sherisesinyeelam.java4kids;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -28,6 +26,8 @@ public class NavigationDrawer extends AppCompatActivity
 
     Bundle bundle;
     String login_status;
+
+    TextView username, greetings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +47,10 @@ public class NavigationDrawer extends AppCompatActivity
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+//        View headerView = navigationView.inflateHeaderView(R.layout.nav_header_navigation_drawer);
+//        username = (TextView) headerView.findViewById(R.id.nav_user_name);
+        //greetings = (TextView) headerView.findViewById(R.id.nav_greetings);
 
         try {
             // the following collect the data that have been passed from login.
@@ -74,6 +78,22 @@ public class NavigationDrawer extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+
+        // TODO check how to pass data through the whole app
+        try{
+            if (login_status.equals("success")) {
+                System.out.println("in the if statement");
+
+//                String userID = bundle.getString("userID");
+//                String firstname = bundle.getString("firstname");
+//                String lastname = bundle.getString("lastname");
+////            String age = bundle.getString("age");
+////            String email = bundle.getString("email");
+//                username.setText(firstname);
+            }
+
+        } catch (Exception e) {}
+
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
@@ -107,10 +127,14 @@ public class NavigationDrawer extends AppCompatActivity
             // Handle the login action
             Intent intent = new Intent(NavigationDrawer.this, LoginActivity.class);
             startActivity(intent);
+
         } else if (id == R.id.nav_logout){
             Toast.makeText(this, "Logout success :)", Toast.LENGTH_SHORT).show();
             navigationView.getMenu().findItem(R.id.nav_login).setVisible(true);
             navigationView.getMenu().findItem(R.id.nav_logout).setVisible(false);
+            finish();
+            Intent intent = new Intent(NavigationDrawer.this, StartAppActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

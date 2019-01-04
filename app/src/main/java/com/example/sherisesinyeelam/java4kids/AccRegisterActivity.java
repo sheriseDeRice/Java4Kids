@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,12 +32,9 @@ public class AccRegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_acc_register);
 
-        if (android.os.Build.VERSION.SDK_INT > 9)
-        {
-            StrictMode.ThreadPolicy policy = new
-                    StrictMode.ThreadPolicy.Builder().permitAll().build();
-            StrictMode.setThreadPolicy(policy);
-        }
+        //Allowing to access the network
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
         //add back button on the toolbar.
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -69,23 +65,20 @@ public class AccRegisterActivity extends AppCompatActivity {
                 final String pwCon = pwConfirm.getText().toString();
 
                 if(pwCon.equals(pw)) {
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(AccRegisterActivity.this);
-                    builder.setMessage("Button clicked")
-                            .create()
-                            .show();
+                    // used to test button
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(AccRegisterActivity.this);
+//                    builder.setMessage("Button clicked")
+//                            .create()
+//                            .show();
 
                     Response.Listener<String> responseListener = new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
-
-                            Log.e(AccRegisterActivity.class.getSimpleName(), "in onResponse" + response.toString());
+                            //Log.e(AccRegisterActivity.class.getSimpleName(), "in onResponse" + response.toString());
 
                             try {
                                 JSONObject jsonObject = new JSONObject(response);
                                 boolean success = jsonObject.getBoolean("success");
-
-                                System.out.println("in try");
 
                                 if (success) {
 
@@ -101,6 +94,10 @@ public class AccRegisterActivity extends AppCompatActivity {
                                                     Intent intent = new Intent(AccRegisterActivity.this, NavigationDrawer.class);
                                                     // passing the login status to the main page.
                                                     intent.putExtra("login_status", "success");
+                                                    intent.putExtra("firstname", fname);
+                                                    intent.putExtra("lastname", lname);
+                                                    intent.putExtra("age", ages);
+                                                    intent.putExtra("email", mail);
                                                     startActivity(intent);
                                                 }
                                             })
@@ -126,7 +123,6 @@ public class AccRegisterActivity extends AppCompatActivity {
                                 }
 
                             } catch (JSONException e) {
-                                System.out.println("in catch");
                                 e.printStackTrace();
                             }
                         }
@@ -140,9 +136,9 @@ public class AccRegisterActivity extends AppCompatActivity {
                         }
                     };
 
-                    RegisterAccRequest registerAccRequest = new RegisterAccRequest(fname, lname, ages, gender, mail, pw, responseListener, errorListener);
+                    AccRegisterRequest accRegisterRequest = new AccRegisterRequest(fname, lname, ages, gender, mail, pw, responseListener, errorListener);
                     RequestQueue queue = Volley.newRequestQueue(AccRegisterActivity.this);
-                    queue.add(registerAccRequest);
+                    queue.add(accRegisterRequest);
                 }
 
                 return;
@@ -173,9 +169,9 @@ public class AccRegisterActivity extends AppCompatActivity {
                 }
                 break;
         }
-
     }
 
+    // return to the previous page
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
