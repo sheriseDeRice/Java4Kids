@@ -6,9 +6,9 @@
 
 The world is moving into a digitalised century throughout the years. Everything is connected to and can be accessed through the Internet. Being “digitised” brings convenience to society and improves the way people work in real-time. Our lives are now more efficient. For example:
 
-\➢ Google Drive allows users to upload documents and be able to access them anywhere;
-\➢ The mobile bank application allows us to check the bank statements and make money transactions easily with a simple and clear Graphic User Interface;
-\➢ Online shopping services such as Amazon allow people to order items they want from the websites and have it delivered to the door.
+➢ Google Drive allows users to upload documents and be able to access them anywhere;
+➢ The mobile bank application allows us to check the bank statements and make money transactions easily with a simple and clear Graphic User Interface;
+➢ Online shopping services such as Amazon allow people to order items they want from the websites and have it delivered to the door.
 
 With the needs of technology growing rapidly, we are relying on the young generation to become the next creator or developer in the future. Therefore, as a Computer Scientist, I wish to create something that can help to educate young children about the basic programming skills and to help the talented child to build up their interest in technology.
 
