@@ -24,24 +24,24 @@ public class SnakeActivity extends Activity {
 
         snakeEngine = new SnakeEngine(this, size);
 
-        // Make snakeEngine the view of the Activity
+        // Make snakeEngineDraft the view of the Activity
         setContentView(snakeEngine);
 
         // TODO
-//        if(snakeEngine.get_current_Max_death() == 0){
+//        if(snakeEngineDraft.get_current_Max_death() == 0){
 //            finishActivity();
 //        }
 
     }
 
-    // Start the thread in snakeEngine
+    // Start the thread in snakeEngineDraft
     @Override
     protected void onResume() {
         super.onResume();
         snakeEngine.resume();
     }
 
-    // Stop the thread in snakeEngine
+    // Stop the thread in snakeEngineDraft
     @Override
     protected void onPause() {
         super.onPause();

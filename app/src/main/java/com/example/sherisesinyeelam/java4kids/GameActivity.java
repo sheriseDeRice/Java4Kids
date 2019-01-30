@@ -2,19 +2,21 @@ package com.example.sherisesinyeelam.java4kids;
 
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 
+import com.example.sherisesinyeelam.java4kids.chosinggame.TheChosingGameActivity;
+import com.example.sherisesinyeelam.java4kids.draganddropgame.TheDragAndDropGameActivity;
+import com.example.sherisesinyeelam.java4kids.linkinggame.TheLinkingGameActivity;
+import com.example.sherisesinyeelam.java4kids.matchingame.TheMatchingGameActivity;
 import com.example.sherisesinyeelam.java4kids.snakegame.SnakeActivity;
 
 public class GameActivity extends NavigationDrawer {
 
-    ImageButton snake_lv1;
-    ImageButton chosing_level1;
-    ImageButton matching_level1;
+    ImageButton snake_lv1, chosing_level1, matching_level1, linking_level1, dragNdrop_level1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,17 @@ public class GameActivity extends NavigationDrawer {
         getLayoutInflater().inflate(R.layout.activity_game, contentFrameLayout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.getMenu().getItem(0).setChecked(true);
+
+        // todo, set new images for all the game
+
+        linking_level1 = (ImageButton) findViewById(R.id.linking_level1);
+        linking_level1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(GameActivity.this, TheLinkingGameActivity.class);
+                startActivity(intent);
+            }
+        });
 
         snake_lv1 = (ImageButton) findViewById(R.id.snake_level1);
         snake_lv1.setOnClickListener(new View.OnClickListener() {
@@ -41,9 +54,17 @@ public class GameActivity extends NavigationDrawer {
         chosing_level1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO
-//                Intent intent = new Intent(GameActivity.this, .class);
-//                startActivity(intent);
+                Intent intent = new Intent(GameActivity.this, TheChosingGameActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        dragNdrop_level1 = (ImageButton) findViewById(R.id.drag_and_drop_level1);
+        dragNdrop_level1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(GameActivity.this, TheDragAndDropGameActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -51,11 +72,11 @@ public class GameActivity extends NavigationDrawer {
         matching_level1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO
-//                Intent intent = new Intent(GameActivity.this, .class);
-//                startActivity(intent);
+                Intent intent = new Intent(GameActivity.this, TheMatchingGameActivity.class);
+                startActivity(intent);
             }
         });
+
 
 
     }

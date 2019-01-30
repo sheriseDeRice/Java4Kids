@@ -71,6 +71,8 @@ public class StartAppLoginActivity extends AppCompatActivity {
                             boolean success = jsonResponse.getBoolean("success");
 
                             if(success){
+                                //TODO solve this - pass data to another class
+                                // todo, password encryption and decryption.
                                 String userID = jsonResponse.getString("userID");
                                 String firstname = jsonResponse.getString("firstname");
                                 String lastname = jsonResponse.getString("lastname");

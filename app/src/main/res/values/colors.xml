@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorAccent">#ff4081</color>
 
     <color name="White">#FFFFFF</color>
     <color name="Ivory">#FFFFF0</color>
@@ -23,7 +23,7 @@
     <color name="PeachPuff">#FFDAB9</color>
     <color name="Gold">#FFD700</color>
     <color name="Pink">#FFC0CB</color>
-    <color name="LightPink">#FFB6C1</color>
+    <color name="LightPink">#ffb6c1</color>
     <color name="Orange">#FFA500</color>
     <color name="LightSalmon">#FFA07A</color>
     <color name="DarkOrange">#FF8C00</color>
@@ -49,11 +49,11 @@
     <color name="Azure">#F0FFFF</color>
     <color name="Honeydew">#F0FFF0</color>
     <color name="AliceBlue">#F0F8FF</color>
-    <color name="Khaki">#F0E68C</color>
+    <color name="Khaki">#f0e68c</color>
     <color name="LightCoral">#F08080</color>
     <color name="PaleGoldenrod">#EEE8AA</color>
     <color name="Violet">#EE82EE</color>
-    <color name="DarkSalmon">#E9967A</color>
+    <color name="DarkSalmon">#e9967a</color>
     <color name="Lavender">#E6E6FA</color>
     <color name="LightCyan">#E0FFFF</color>
     <color name="BurlyWood">#DEB887</color>
@@ -62,7 +62,7 @@
     <color name="Crimson">#DC143C</color>
     <color name="PaleVioletRed">#DB7093</color>
     <color name="Goldenrod">#DAA520</color>
-    <color name="Orchid">#DA70D6</color>
+    <color name="Orchid">#da70d6</color>
     <color name="Thistle">#D8BFD8</color>
     <color name="LightGrey">#D3D3D3</color>
     <color name="Tan">#D2B48C</color>
@@ -112,7 +112,7 @@
     <color name="DimGray">#696969</color>
     <color name="MediumAquamarine">#66CDAA</color>
     <color name="CornflowerBlue">#6495ED</color>
-    <color name="CadetBlue">#5F9EA0</color>
+    <color name="CadetBlue">#5f9ea0</color>
     <color name="DarkOliveGreen">#556B2F</color>
     <color name="Indigo">#4B0082</color>
     <color name="MediumTurquoise">#48D1CC</color>
@@ -126,7 +126,7 @@
     <color name="SeaGreen">#2E8B57</color>
     <color name="ForestGreen">#228B22</color>
     <color name="LightSeaGreen">#20B2AA</color>
-    <color name="DodgerBlue">#1E90FF</color>
+    <color name="DodgerBlue">#74a9dd</color>
     <color name="MidnightBlue">#191970</color>
     <color name="Aqua">#00FFFF</color>
     <color name="Cyan">#00FFFF</color>

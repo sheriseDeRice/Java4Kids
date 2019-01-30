@@ -1,21 +1,13 @@
 package com.example.sherisesinyeelam.java4kids.snakegame;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.app.FragmentManager;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.res.AssetFileDescriptor;
 import android.graphics.Point;
-import android.media.AudioManager;
-import android.media.SoundPool;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import java.io.IOException;
+
 import java.util.Random;
-import android.content.res.AssetManager;
+
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -54,7 +46,7 @@ public class SnakeEngine extends SurfaceView implements Runnable {
 
     private long nextFrameTime; //Control pausing between updates
     private final long FPS = 10; // Update the game 10 times per second
-    private final long MILLIS_PER_SECOND = 3000; // There are 1000 milliseconds in a second
+    private final long MILLIS_PER_SECOND = 5000; // There are 1000 milliseconds in a second
 
     private int score; // storing the score
 
@@ -201,7 +193,7 @@ public class SnakeEngine extends SurfaceView implements Runnable {
         // Got the correct piece!
         // Increase the size of the snake
         snakeLength++;
-        //replace Code
+        // replace Code
         // This reminds me of Edge of Tomorrow. One day Code will be ready!
         spawnCode();
         //add to the score
@@ -330,7 +322,7 @@ public class SnakeEngine extends SurfaceView implements Runnable {
             // Tenth of a second has passed
 
             // Setup when the next update will be triggered
-            nextFrameTime =System.currentTimeMillis() + MILLIS_PER_SECOND / FPS;
+            nextFrameTime = System.currentTimeMillis() + MILLIS_PER_SECOND / FPS;
 
             // Return true so that the update and draw
             // functions are executed
