@@ -1,4 +1,4 @@
-package com.example.sherisesinyeelam.java4kids.snakegame;
+package com.example.sherisesinyeelam.java4kids.mainpages.gamespage.snakegame;
 
 import android.app.Activity;
 import android.graphics.Point;

@@ -9,15 +9,20 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sherisesinyeelam.java4kids.loginregister.LoginActivity;
+import com.example.sherisesinyeelam.java4kids.mainpages.SettingsActivity;
+import com.example.sherisesinyeelam.java4kids.mainpages.friendspage.FriendsActivity;
+import com.example.sherisesinyeelam.java4kids.mainpages.gamespage.GameActivity;
+import com.example.sherisesinyeelam.java4kids.mainpages.ShowProgressActivity;
+import com.example.sherisesinyeelam.java4kids.mainpages.UserProfileActivity;
+
 import java.util.Calendar;
 
-public class NavigationDrawer extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class NavigationDrawer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     Toolbar toolbar;
     DrawerLayout drawer;
@@ -48,9 +53,12 @@ public class NavigationDrawer extends AppCompatActivity
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        // changing the header
 //        View headerView = navigationView.inflateHeaderView(R.layout.nav_header_navigation_drawer);
 //        username = (TextView) headerView.findViewById(R.id.nav_user_name);
-        //greetings = (TextView) headerView.findViewById(R.id.nav_greetings);
+//        greetings = (TextView) headerView.findViewById(R.id.nav_greetings);
+        username = (TextView) findViewById(R.id.nav_user_name);
+        greetings = (TextView) findViewById(R.id.nav_greetings);
 
         try {
             // the following collect the data that have been passed from login.
@@ -97,7 +105,17 @@ public class NavigationDrawer extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_game) {
+        if (id == R.id.nav_profile) {
+            // Handle the game action
+            Intent intent = new Intent(NavigationDrawer.this, UserProfileActivity.class);
+            try {
+                if (login_status.equals("success")) {
+                    intent.putExtra("login_status", "success");
+                }
+            } catch (Exception e) {}
+            startActivity(intent);
+
+        } else if (id == R.id.nav_game) {
             // Handle the game action
             Intent intent = new Intent(NavigationDrawer.this, GameActivity.class);
             try {
@@ -109,6 +127,13 @@ public class NavigationDrawer extends AppCompatActivity
 
         } else if (id == R.id.nav_progress) {
             // Handle the progress action
+            Intent intent = new Intent(NavigationDrawer.this, ShowProgressActivity.class);
+            try {
+                if (login_status.equals("success")) {
+                    intent.putExtra("login_status", "success");
+                }
+            } catch (Exception e) {}
+            startActivity(intent);
 
         } else if (id == R.id.nav_friends) {
             // Handle the friends action
@@ -122,6 +147,13 @@ public class NavigationDrawer extends AppCompatActivity
 
         } else if (id == R.id.nav_settings) {
             // Handle the settings action
+            Intent intent = new Intent(NavigationDrawer.this, SettingsActivity.class);
+            try {
+                if (login_status.equals("success")) {
+                    intent.putExtra("login_status", "success");
+                }
+            } catch (Exception e) {}
+            startActivity(intent);
 
         } else if (id == R.id.nav_login) {
             // Handle the login action

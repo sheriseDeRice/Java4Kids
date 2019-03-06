@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mainpages.ShowProgressActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login trend:"
+            android:textStyle="bold"
+            android:textSize="15dp"/>
+
+        <com.jjoe64.graphview.GraphView
+            android:layout_width="match_parent"
+            android:layout_height="200dip"
+            android:layout_marginTop="5dp"
+            android:id="@+id/progress_graph" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Tasks complement:"
+            android:textStyle="bold"
+            android:textSize="15dp"/>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="5dp"
+            android:stretchColumns="1">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="Chapter 1"
+                    android:textStyle="bold"
+                    android:textColor="@color/White"
+                    android:background="@drawable/table_title_cell_shape"
+                    android:padding="3dip" />
+                <TextView
+                    android:text="Complement"
+                    android:textStyle="bold"
+                    android:textColor="@color/White"
+                    android:background="@drawable/table_title_cell_shape"
+                    android:gravity="right"
+                    android:padding="3dip" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="Variables Type"
+                    android:background="@drawable/table_cell_shape"
+                    android:padding="3dip" />
+                <TextView
+                    android:text="70%"
+                    android:gravity="right"
+                    android:background="@drawable/table_cell_shape"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="Methods"
+                    android:background="@drawable/table_cell_shape"
+                    android:padding="3dip" />
+                <TextView
+                    android:text="0%"
+                    android:gravity="right"
+                    android:background="@drawable/table_cell_shape"
+                    android:padding="3dip" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="Array"
+                    android:background="@drawable/table_cell_shape"
+                    android:padding="3dip" />
+
+                <TextView
+                    android:text="0%"
+                    android:gravity="right"
+                    android:background="@drawable/table_cell_shape"
+                    android:padding="3dip" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="Class"
+                    android:background="@drawable/table_cell_shape"
+                    android:padding="3dip" />
+
+                <TextView
+                    android:text="0%"
+                    android:gravity="right"
+                    android:background="@drawable/table_cell_shape"
+                    android:padding="3dip" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="..."
+                    android:background="@drawable/table_cell_shape"
+                    android:padding="3dip" />
+
+                <TextView
+                    android:text="0%"
+                    android:gravity="right"
+                    android:background="@drawable/table_cell_shape"
+                    android:padding="3dip" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="..."
+                    android:background="@drawable/table_cell_shape"
+                    android:padding="3dip" />
+
+                <TextView
+                    android:text="0%"
+                    android:gravity="right"
+                    android:background="@drawable/table_cell_shape"
+                    android:padding="3dip" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:text="..."
+                    android:background="@drawable/table_cell_shape"
+                    android:padding="3dip" />
+
+                <TextView
+                    android:text="0%"
+                    android:gravity="right"
+                    android:background="@drawable/table_cell_shape"
+                    android:padding="3dip" />
+
+            </TableRow>
+        </TableLayout>
+
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

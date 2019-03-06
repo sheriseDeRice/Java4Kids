@@ -1,15 +1,14 @@
-package com.example.sherisesinyeelam.java4kids;
+package com.example.sherisesinyeelam.java4kids.mainpages.friendspage;
 
 import android.content.Intent;
 import android.support.design.widget.NavigationView;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import java.io.InputStream;
+import com.example.sherisesinyeelam.java4kids.NavigationDrawer;
+import com.example.sherisesinyeelam.java4kids.R;
 
 public class FriendsActivity extends NavigationDrawer {
 
@@ -22,7 +21,7 @@ public class FriendsActivity extends NavigationDrawer {
         //Remember this is the FrameLayout area within your activity_main.xml
         getLayoutInflater().inflate(R.layout.activity_friends, contentFrameLayout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.getMenu().getItem(2).setChecked(true);
+        navigationView.getMenu().getItem(3).setChecked(true);
 
         // todo show a list of friends added here.
 

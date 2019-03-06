@@ -1,44 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    app:layout_behavior="android.support.design.widget.AppBarLayout$ScrollingVie.."
-    android:id="@+id/default_background"
-    tools:context=".SearchForFriendsEngine">
+    tools:context=".mainpages.friendspage.SearchForFriendsEngine">
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:defaultQueryHint="Search..." />
-
-    <ListView
-        android:id="@+id/show_listFriend"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/searchView"></ListView>
+        android:fitsSystemWindows="true"
+        android:id="@+id/default_background">
 
-    <TextView
-        android:id="@+id/noData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:layout_centerInParent="true"
-        android:layout_centerVertical="true" />
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/noNetwork"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:layout_centerInParent="true"
-        android:layout_centerVertical="true" />
+    </android.support.design.widget.AppBarLayout>
 
+    <include layout="@layout/search_for_friend_engine_content_main"/>
 
-</RelativeLayout>
+    </RelativeLayout>
+</android.support.constraint.ConstraintLayout>

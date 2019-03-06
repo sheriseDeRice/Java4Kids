@@ -1,26 +1,23 @@
-package com.example.sherisesinyeelam.java4kids;
+package com.example.sherisesinyeelam.java4kids.mainpages.friendspage;
 
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.example.sherisesinyeelam.java4kids.MySQL.SenderReceiver;
-import com.example.sherisesinyeelam.java4kids.chosinggame.TheChosingGameActivity;
+import com.example.sherisesinyeelam.java4kids.R;
 
 import java.util.Calendar;
-import java.util.List;
 
 public class SearchForFriendsEngine extends AppCompatActivity {
 
     String urlAddress = "http://sinyeelam.com/search.php";
     SearchView searchView;
-    ListView listView;
-    TextView noDataText, noNetworkText;
+    ListView listView; // show searched results
+    TextView noDataText, noNetworkText; // display relevant message when error occurs.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -8,17 +8,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.example.sherisesinyeelam.java4kids.loginregister.AccRegisterActivity;
+import com.example.sherisesinyeelam.java4kids.loginregister.LoginRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.Calendar;
 
 public class StartAppLoginActivity extends AppCompatActivity {
 
@@ -30,8 +29,6 @@ public class StartAppLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_app_login);
-
-        autoChangeBackground();
 
         login_cancel = (Button) findViewById(R.id.cover_login_cancel);
         login_email = (EditText) findViewById(R.id.cover_login_email);
@@ -52,14 +49,12 @@ public class StartAppLoginActivity extends AppCompatActivity {
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 // button tester
 //                AlertDialog.Builder builder = new AlertDialog.Builder(StartAppLoginActivity.this);
 //                builder.setMessage("This is working")
 //                        .setNegativeButton("Success", null)
 //                        .create()
 //                        .show();
-
                 final String mail = login_email.getText().toString();
                 final String pw = login_password.getText().toString();
 
@@ -69,26 +64,23 @@ public class StartAppLoginActivity extends AppCompatActivity {
                         try{
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
-
                             if(success){
                                 //TODO solve this - pass data to another class
                                 // todo, password encryption and decryption.
-                                String userID = jsonResponse.getString("userID");
-                                String firstname = jsonResponse.getString("firstname");
-                                String lastname = jsonResponse.getString("lastname");
+//                                String userID = jsonResponse.getString("userID");
+//                                String firstname = jsonResponse.getString("firstname");
+//                                String lastname = jsonResponse.getString("lastname");
 //                                int age = Integer.parseInt(jsonResponse.getString("age"));
 //                                //String gender = jsonResponse.getString("gender");
 //                                String email = jsonResponse.getString("email");
-
                                 Intent intent = new Intent(StartAppLoginActivity.this, NavigationDrawer.class);
                                 intent.putExtra("login_status", "success");
-                                intent.putExtra("userID", userID);
-                                intent.putExtra("firstname", firstname);
-                                intent.putExtra("lastname", lastname);
+//                                intent.putExtra("userID", userID);
+//                                intent.putExtra("firstname", firstname);
+//                                intent.putExtra("lastname", lastname);
 //                                intent.putExtra("age", age + "");
 //                                intent.putExtra("email", email);
                                 startActivity(intent);
-
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(StartAppLoginActivity.this);
                                 builder.setMessage("Login fail :(")
@@ -96,13 +88,11 @@ public class StartAppLoginActivity extends AppCompatActivity {
                                         .create()
                                         .show();
                             }
-
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
                 };
-
                 LoginRequest loginAccRequest = new LoginRequest(mail, pw, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(StartAppLoginActivity.this);
                 queue.add(loginAccRequest);
@@ -117,39 +107,6 @@ public class StartAppLoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-    }
-
-    // auto change background according to the time (day/night). These are default background.
-    public void autoChangeBackground(){
-
-        final LinearLayout layout = (LinearLayout) findViewById(R.id.startapp_background);
-
-        Thread t = new Thread() {
-            @Override
-            public void run() {
-                try {
-                    while (!isInterrupted()) {
-
-                        StartAppLoginActivity.super.runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                Calendar c = Calendar.getInstance();
-                                int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
-                                if(timeOfDay >= 7 && timeOfDay < 17){
-                                    layout.setBackgroundResource(R.color.LightSkyBlue);
-                                }
-                                else{
-                                    layout.setBackgroundResource(R.color.PaleGoldenrod);
-                                }
-                            }
-                        });
-                        Thread.sleep(1000);
-                    }
-                } catch (InterruptedException e) {}
-            }
-        };
-        t.start();
 
     }
 }

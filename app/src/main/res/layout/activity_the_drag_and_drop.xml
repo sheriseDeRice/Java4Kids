@@ -1,200 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp"
-    android:paddingLeft="16dp"
-    android:paddingBottom="16dp"
-    tools:context=".draganddropgame.TheDragAndDropGameActivity">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:id="@+id/drag_n_drop_target1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/DarkSalmon"
-            android:orientation="vertical"
-            android:padding="5dp">
-
-            <Button
-                android:id="@+id/button1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="___________" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/drag_n_drop_target2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/DodgerBlue"
-            android:orientation="vertical"
-            android:padding="5dp">
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="___________" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/drag_n_drop_target3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/Khaki"
-            android:orientation="vertical"
-            android:padding="5dp">
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="___________" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/drag_n_drop_target4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/LightPink"
-            android:orientation="vertical"
-            android:padding="5dp">
-
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="___________" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/drag_n_drop_target5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@color/Orchid"
-            android:orientation="vertical"
-            android:padding="5dp">
-
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="___________" />
-
-        </LinearLayout>
-
-
-    </LinearLayout>
+    tools:context=".mainpages.gamespage.draganddropgame.TheDragAndDropGameActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_marginTop="25dp"
-        android:id="@+id/drop_target">
+        android:orientation="vertical"
+        android:paddingTop="16dp"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"
+        android:paddingBottom="16dp"
+        android:id="@+id/drag_and_drop_default_background">
 
-        <Button
-            android:id="@+id/drag_piece1"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Piece 1"/>
+            android:layout_weight="1">
 
-        <Button
-            android:id="@+id/drag_piece2"
+            <TextView
+                android:id="@+id/d_question"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Question"/>
+
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_weight="1"
-            android:text="Piece 2"/>
+            android:layout_gravity="center"
+            android:gravity="center">
 
-        <Button
-            android:id="@+id/drag_piece3"
+            <LinearLayout
+                android:id="@+id/drag_n_drop_target1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/DarkSalmon"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="___________" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/drag_n_drop_target2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/DodgerBlue"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="___________" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/drag_n_drop_target3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/Khaki"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="___________" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/drag_n_drop_target4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/LightPink"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="___________" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/drag_n_drop_target5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/Orchid"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="___________" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="25dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:padding="3dp"
+            android:id="@+id/drop_target">
+
+            <Button
+                android:id="@+id/drag_piece1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Piece 1"/>
+
+            <Button
+                android:id="@+id/drag_piece2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Piece 2"/>
+
+            <Button
+                android:id="@+id/drag_piece3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Piece 3"/>
+
+            <Button
+                android:id="@+id/drag_piece4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Piece 4"/>
+
+            <Button
+                android:id="@+id/drag_piece5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Piece 5"/>
+
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:layout_weight="1"
-            android:text="Piece 3"/>
+            android:padding="5dp"
+            android:gravity="center|bottom|end">
 
-        <Button
-            android:id="@+id/drag_piece4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Piece 4"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Score: Question: 0"/>
 
-        <Button
-            android:id="@+id/drag_piece5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Piece 5"/>
-
+            <Button
+                android:id="@+id/d_next_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next"/>
+        </LinearLayout>
 
     </LinearLayout>
 
-    <!-- the below is old version -->
-    <!--<TextView-->
-        <!--android:id="@+id/drag_piece1"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_marginStart="110dp"-->
-        <!--android:layout_marginLeft="110dp"-->
-        <!--android:layout_marginTop="50dp"-->
-        <!--android:text="Test piece 1"-->
-        <!--android:textSize="20dp" />-->
-
-    <!--<TextView-->
-        <!--android:id="@+id/drag_piece2"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_alignParentLeft="true"-->
-        <!--android:layout_marginStart="110dp"-->
-        <!--android:layout_marginLeft="110dp"-->
-        <!--android:layout_marginTop="100dp"-->
-        <!--android:text="Test piece 2"-->
-        <!--android:textSize="20dp" />-->
-
-    <!--<TextView-->
-        <!--android:id="@+id/drag_piece3"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignStart="@+id/drag_piece2"-->
-        <!--android:layout_marginTop="150dp"-->
-        <!--android:text="Test piece 3"-->
-        <!--android:textSize="20dp" />-->
-
-    <!--<TextView-->
-        <!--android:id="@+id/target_drop_area"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentEnd="true"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_marginTop="100dp"-->
-        <!--android:layout_marginEnd="94dp"-->
-        <!--android:layout_marginRight="94dp"-->
-        <!--android:background="@color/colorAccent"-->
-        <!--android:padding="10dp"-->
-        <!--android:text="Drop Here"-->
-        <!--android:textSize="35dp" />-->
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

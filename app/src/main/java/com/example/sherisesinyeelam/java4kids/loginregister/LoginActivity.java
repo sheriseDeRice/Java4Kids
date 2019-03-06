@@ -1,4 +1,4 @@
-package com.example.sherisesinyeelam.java4kids;
+package com.example.sherisesinyeelam.java4kids.loginregister;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -31,6 +31,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import com.example.sherisesinyeelam.java4kids.NavigationDrawer;
+import com.example.sherisesinyeelam.java4kids.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +80,7 @@ public class LoginActivity extends NavigationDrawer implements LoaderCallbacks<C
         //Remember this is the FrameLayout area within your activity_main.xml
         getLayoutInflater().inflate(R.layout.activity_login, contentFrameLayout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.getMenu().getItem(4).setChecked(true);
+        navigationView.getMenu().getItem(5).setChecked(true);
 
         // Set up the login form.
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);

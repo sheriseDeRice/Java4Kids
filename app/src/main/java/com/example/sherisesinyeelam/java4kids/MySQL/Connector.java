@@ -16,8 +16,8 @@ public class Connector {
 
             // set properties
             connection.setRequestMethod("POST");
-            connection.setConnectTimeout(10000);
-            connection.setReadTimeout(10000);
+            connection.setConnectTimeout(20000);
+            connection.setReadTimeout(20000);
             connection.setDoInput(true);
             connection.setDoOutput(true);
 

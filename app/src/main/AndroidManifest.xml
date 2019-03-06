@@ -20,6 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+
         <activity
             android:name=".StartAppActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -36,36 +37,49 @@
             android:name=".NavigationDrawer"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".loginregister.LoginActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".FriendsActivity"
+            android:name=".mainpages.UserProfileActivity"
+            android:label="Profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".mainpages.ShowProgressActivity"
+            android:label="Progress"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".mainpages.friendspage.FriendsActivity"
             android:label="Friends"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SearchForFriendsEngine"
+            android:name=".mainpages.friendspage.SearchForFriendsEngine"
             android:label="Search Friends" />
         <activity
-            android:name=".GameActivity"
+            android:name=".mainpages.gamespage.GameActivity"
             android:label="Games"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AccRegisterActivity"
+            android:name=".loginregister.AccRegisterActivity"
             android:label="Register" />
-
-        <activity android:name=".snakegame.SnakeActivity"
+        <activity
+            android:name=".mainpages.gamespage.snakegame.SnakeActivity"
             android:label="The Snake Game"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".chosinggame.TheChosingGameActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".mainpages.gamespage.chosinggame.TheChosingGameActivity"
             android:label="The Choosing Game" />
-        <activity android:name=".linkinggame.TheLinkingGameActivity"
+        <activity
+            android:name=".mainpages.gamespage.linkinggame.TheLinkingGameActivity"
             android:label="The Linking Game" />
-        <activity android:name=".draganddropgame.TheDragAndDropGameActivity"
+        <activity
+            android:name=".mainpages.gamespage.draganddropgame.TheDragAndDropGameActivity"
             android:label="The Drag and Drop Game"
-            android:screenOrientation="landscape"/>
-        <activity android:name=".matchingame.TheMatchingGameActivity"
-            android:label="The Matching Game"></activity>
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".mainpages.gamespage.matchingame.TheMatchingGameActivity"
+            android:label="The Matching Game" />
+        <activity android:name=".mainpages.SettingsActivity"></activity>
     </application>
 
 </manifest>

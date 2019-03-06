@@ -1,27 +1,64 @@
-package com.example.sherisesinyeelam.java4kids.linkinggame;
+package com.example.sherisesinyeelam.java4kids.mainpages.gamespage.linkinggame;
 
 import com.example.sherisesinyeelam.java4kids.R;
-import com.example.sherisesinyeelam.java4kids.chosinggame.TheChosingGameActivity;
 
+import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.RelativeLayout;
+import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.Calendar;
 
 public class TheLinkingGameActivity extends AppCompatActivity {
+
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_the_linking_game);
         autoChangeBackground();
+
+        dialog = new Dialog(this);
+        // todo, not going to work on this part for now
+
+
+    }
+
+    // todo, also apply this on the drop down menu inside the game.
+    public void popUpOpen(View v){
+        dialog.setContentView(R.layout.custompopup_lesson_description);
+
+        TextView closePopUp = (TextView) dialog.findViewById(R.id.close_popup);
+        Button okay_btn = (Button) dialog.findViewById(R.id.okay_button);
+
+        closePopUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        okay_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // todo, to switch to the question page. (switch layout?)
+            }
+        });
+
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.show();
     }
 
     // auto change background according to the time (day/night). These are default background.
     public void autoChangeBackground(){
 
-        final RelativeLayout layout = (RelativeLayout) findViewById(R.id.default_background);
+        final LinearLayout layout = (LinearLayout) findViewById(R.id.linking_game_defualt_bg);
 
         Thread t = new Thread() {
             @Override
@@ -50,4 +87,5 @@ public class TheLinkingGameActivity extends AppCompatActivity {
         t.start();
 
     }
+
 }

@@ -1,18 +1,17 @@
-package com.example.sherisesinyeelam.java4kids;
+package com.example.sherisesinyeelam.java4kids.loginregister;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
-
 import java.util.HashMap;
 import java.util.Map;
-
 
 public class AccRegisterRequest extends StringRequest{
 
     private static final String REGISTER_REQUEST_URL = "http://sinyeelam.com/register.php";
     private Map<String, String> params;
 
-    public AccRegisterRequest(String firstname, String lastname, int age, String gender, String email, String password, Response.Listener<String> listener, Response.ErrorListener errorListener){
+    public AccRegisterRequest(String firstname, String lastname, int age, String gender, String email, String password,
+                              Response.Listener<String> listener, Response.ErrorListener errorListener){
 
         super(Method.POST, REGISTER_REQUEST_URL, listener, errorListener);
 

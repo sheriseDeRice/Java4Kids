@@ -1,4 +1,4 @@
-package com.example.sherisesinyeelam.java4kids;
+package com.example.sherisesinyeelam.java4kids.loginregister;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -19,6 +19,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.example.sherisesinyeelam.java4kids.NavigationDrawer;
+import com.example.sherisesinyeelam.java4kids.R;
 
 
 public class AccRegisterActivity extends AppCompatActivity {
@@ -75,29 +77,24 @@ public class AccRegisterActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(String response) {
                             //Log.e(AccRegisterActivity.class.getSimpleName(), "in onResponse" + response.toString());
-
                             try {
                                 JSONObject jsonObject = new JSONObject(response);
                                 boolean success = jsonObject.getBoolean("success");
-
                                 if (success) {
-
                                     AlertDialog.Builder builder = new AlertDialog.Builder(AccRegisterActivity.this);
                                     builder.setMessage("Register Successful!")
                                             .setPositiveButton("Login", new DialogInterface.OnClickListener() {
                                                 @Override
                                                 public void onClick(DialogInterface dialog, int which) {
                                                     AlertDialog.Builder builder = new AlertDialog.Builder(AccRegisterActivity.this);
-                                                    builder.setMessage("Login success")
-                                                            .create()
-                                                            .show();
+                                                    builder.setMessage("Login success").create().show();
                                                     Intent intent = new Intent(AccRegisterActivity.this, NavigationDrawer.class);
-                                                    // passing the login status to the main page.
-                                                    intent.putExtra("login_status", "success");
-                                                    intent.putExtra("firstname", fname);
-                                                    intent.putExtra("lastname", lname);
-                                                    intent.putExtra("age", ages);
-                                                    intent.putExtra("email", mail);
+//                                                    // passing the login status to the main page.
+//                                                    intent.putExtra("login_status", "success");
+//                                                    intent.putExtra("firstname", fname);
+//                                                    intent.putExtra("lastname", lname);
+//                                                    intent.putExtra("age", ages);
+//                                                    intent.putExtra("email", mail);
                                                     startActivity(intent);
                                                 }
                                             })
@@ -121,7 +118,6 @@ public class AccRegisterActivity extends AppCompatActivity {
                                             .create()
                                             .show();
                                 }
-
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
