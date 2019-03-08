@@ -1,57 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/PeachPuff"
     tools:context=".StartAppActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/PeachPuff">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical"-->
+        <!--android:background="@color/PeachPuff">-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            android:orientation="horizontal"
-            android:gravity="end">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="0.1"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:gravity="end">-->
 
-            <TextView
-                android:id="@+id/app_version"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="Version 0.0.1v"/>
+            <!--<TextView-->
+                <!--android:id="@+id/app_version"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:padding="5dp"-->
+                <!--android:text="Version 0.0.1v"/>-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
-        <ImageView
-            android:id="@+id/cover_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.5"
-            android:contentDescription="app startup screen"
-            app:srcCompat="@mipmap/logo_draft"
-            android:adjustViewBounds="true" />
+        <!--<ImageView-->
+            <!--android:id="@+id/cover_logo"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_weight="0.5"-->
+            <!--android:contentDescription="app startup screen"-->
+            <!--app:srcCompat="@mipmap/logo_draft"-->
+            <!--android:adjustViewBounds="true" />-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_weight="0.3"
+            android:layout_weight="1"
             android:padding="5dp"
             android:layout_margin="5dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.2"
-                android:orientation="horizontal"
-                android:gravity="left">
+
             <Button
                 android:id="@+id/cover_login_cancel"
                 android:layout_width="wrap_content"
@@ -59,53 +56,52 @@
                 android:layout_marginTop="5dp"
                 android:text="Back"
                 android:textSize="15dp"/>
-            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="0.8"
-                android:gravity="center">
-            <EditText
-                android:id="@+id/cover_login_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center"
-                android:ems="10"
-                android:inputType="textEmailAddress"
-                android:hint="Email" />
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/cover_login_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center"
-                android:ems="10"
-                android:inputType="textPassword"
-                android:hint="Password" />
+                <EditText
+                    android:id="@+id/cover_login_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    android:hint="Email" />
 
-            <Button
-                android:id="@+id/cover_login_signin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_gravity="center"
-                android:text="sign in"/>
+                <EditText
+                    android:id="@+id/cover_login_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center"
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:hint="Password" />
 
-            <TextView
-                android:id="@+id/login_registerMe"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_gravity="center"
-                android:clickable="true"
-                android:text="Register Me ->" />
+                <Button
+                    android:id="@+id/cover_login_signin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center"
+                    android:text="sign in"/>
+
+                <TextView
+                    android:id="@+id/cover_login_registerMe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center"
+                    android:clickable="true"
+                    android:text="Register Me ->" />
 
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

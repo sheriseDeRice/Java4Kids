@@ -9,16 +9,16 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.sherisesinyeelam.java4kids.loginregister.LoginActivity;
-import com.example.sherisesinyeelam.java4kids.mainpages.SettingsActivity;
+import com.example.sherisesinyeelam.java4kids.mainpages.settingspage.SettingsActivity;
 import com.example.sherisesinyeelam.java4kids.mainpages.friendspage.FriendsActivity;
 import com.example.sherisesinyeelam.java4kids.mainpages.gamespage.GameActivity;
 import com.example.sherisesinyeelam.java4kids.mainpages.ShowProgressActivity;
 import com.example.sherisesinyeelam.java4kids.mainpages.UserProfileActivity;
+import com.jjoe64.graphview.GraphView;
 
 import java.util.Calendar;
 
@@ -38,8 +38,10 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
-
         autoChangeBackground(); // change background according to the time.
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new UserProfileActivity()).commit();
+
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -53,7 +55,7 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        // changing the header
+//         changing the header
 //        View headerView = navigationView.inflateHeaderView(R.layout.nav_header_navigation_drawer);
 //        username = (TextView) headerView.findViewById(R.id.nav_user_name);
 //        greetings = (TextView) headerView.findViewById(R.id.nav_greetings);
@@ -65,10 +67,6 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
             bundle = getIntent().getExtras();
             login_status = bundle.getString("login_status");
 
-            if (login_status.equals("success")) {
-                navigationView.getMenu().findItem(R.id.nav_login).setVisible(false);
-                navigationView.getMenu().findItem(R.id.nav_logout).setVisible(true);
-            }
         } catch (Exception e){}
 
     }
@@ -88,90 +86,77 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
     public boolean onNavigationItemSelected(MenuItem item) {
 
         // TODO check how to pass data through the whole app
-        try{
-            if (login_status.equals("success")) {
-                System.out.println("in the if statement");
-
-//                String userID = bundle.getString("userID");
-//                String firstname = bundle.getString("firstname");
-//                String lastname = bundle.getString("lastname");
-////            String age = bundle.getString("age");
-////            String email = bundle.getString("email");
-//                username.setText(firstname);
-            }
-
-        } catch (Exception e) {}
 
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_profile) {
             // Handle the game action
-            Intent intent = new Intent(NavigationDrawer.this, UserProfileActivity.class);
+//            Intent intent = new Intent(NavigationDrawer.this, UserProfileActivity.class);
+//            try {
+//                if (login_status.equals("success")) {
+//                    intent.putExtra("login_status", "success");
+//                }
+//            } catch (Exception e) {}
+//            startActivity(intent);
+            UserProfileActivity userProfileActivity = new UserProfileActivity();
             try {
                 if (login_status.equals("success")) {
-                    intent.putExtra("login_status", "success");
+                    bundle.putString("login_status", "success");
+                    userProfileActivity.setArguments(bundle);
                 }
             } catch (Exception e) {}
-            startActivity(intent);
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, userProfileActivity).commit();
 
         } else if (id == R.id.nav_game) {
             // Handle the game action
-            Intent intent = new Intent(NavigationDrawer.this, GameActivity.class);
+            GameActivity gameActivity = new GameActivity();
             try {
                 if (login_status.equals("success")) {
-                    intent.putExtra("login_status", "success");
+                    bundle.putString("login_status", "success");
+                    gameActivity.setArguments(bundle);
                 }
             } catch (Exception e) {}
-            startActivity(intent);
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, gameActivity).commit();
 
         } else if (id == R.id.nav_progress) {
             // Handle the progress action
-            Intent intent = new Intent(NavigationDrawer.this, ShowProgressActivity.class);
+            ShowProgressActivity showProgressActivity = new ShowProgressActivity();
             try {
                 if (login_status.equals("success")) {
-                    intent.putExtra("login_status", "success");
+                    bundle.putString("login_status", "success");
+                    showProgressActivity.setArguments(bundle);
                 }
             } catch (Exception e) {}
-            startActivity(intent);
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, showProgressActivity).commit();
 
         } else if (id == R.id.nav_friends) {
             // Handle the friends action
-            Intent intent = new Intent(NavigationDrawer.this, FriendsActivity.class);
+            FriendsActivity friendsActivity = new FriendsActivity();
             try {
                 if (login_status.equals("success")) {
-                    intent.putExtra("login_status", "success");
+                    bundle.putString("login_status", "success");
+                    friendsActivity.setArguments(bundle);
                 }
             } catch (Exception e) {}
-            startActivity(intent);
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, friendsActivity).commit();
 
         } else if (id == R.id.nav_settings) {
-            // Handle the settings action
-            Intent intent = new Intent(NavigationDrawer.this, SettingsActivity.class);
+//            // Handle the settings action
+            SettingsActivity settingsActivity = new SettingsActivity();
             try {
                 if (login_status.equals("success")) {
-                    intent.putExtra("login_status", "success");
+                    bundle.putString("login_status", "success");
+                    settingsActivity.setArguments(bundle);
                 }
             } catch (Exception e) {}
-            startActivity(intent);
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, settingsActivity).commit();
 
-        } else if (id == R.id.nav_login) {
-            // Handle the login action
-            Intent intent = new Intent(NavigationDrawer.this, LoginActivity.class);
-            startActivity(intent);
-
-        } else if (id == R.id.nav_logout){
-            Toast.makeText(this, "Logout success :)", Toast.LENGTH_SHORT).show();
-            navigationView.getMenu().findItem(R.id.nav_login).setVisible(true);
-            navigationView.getMenu().findItem(R.id.nav_logout).setVisible(false);
-            finish();
-            Intent intent = new Intent(NavigationDrawer.this, StartAppActivity.class);
-            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-        return false;
+        return true;
     }
 
     // auto change background according to the time (day/night). These are default background.

@@ -67,12 +67,6 @@ public class AccRegisterActivity extends AppCompatActivity {
                 final String pwCon = pwConfirm.getText().toString();
 
                 if(pwCon.equals(pw)) {
-                    // used to test button
-//                    AlertDialog.Builder builder = new AlertDialog.Builder(AccRegisterActivity.this);
-//                    builder.setMessage("Button clicked")
-//                            .create()
-//                            .show();
-
                     Response.Listener<String> responseListener = new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -108,7 +102,7 @@ public class AccRegisterActivity extends AppCompatActivity {
                                             .create()
                                             .show();
 
-                                    Intent intent = new Intent(AccRegisterActivity.this, LoginActivity.class);
+                                    Intent intent = new Intent(AccRegisterActivity.this, LoginActivityPro.class);
                                     startActivity(intent);
 
                                 } else {

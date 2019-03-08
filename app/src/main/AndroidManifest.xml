@@ -20,7 +20,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
         <activity
             android:name=".StartAppActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -30,35 +29,34 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".StartAppLoginActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <!--<activity-->
+            <!--android:name=".StartAppLoginActivity"-->
+            <!--android:theme="@style/AppTheme.NoActionBar" />-->
         <activity
             android:name=".NavigationDrawer"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".loginregister.LoginActivity"
-            android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".mainpages.UserProfileActivity"
-            android:label="Profile"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".mainpages.ShowProgressActivity"
-            android:label="Progress"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".mainpages.friendspage.FriendsActivity"
-            android:label="Friends"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".loginregister.LoginActivityPro"
+            android:label="@string/title_activity_login" />
+        <!--<activity-->
+            <!--android:name=".mainpages.UserProfileActivity"-->
+            <!--android:label="Profile"-->
+            <!--android:theme="@style/AppTheme.NoActionBar" />-->
+        <!--<activity-->
+            <!--android:name=".mainpages.ShowProgressActivity"-->
+            <!--android:label="Progress"-->
+            <!--android:theme="@style/AppTheme.NoActionBar" />-->
+        <!--<activity-->
+            <!--android:name=".mainpages.friendspage.FriendsActivity"-->
+            <!--android:label="Friends"-->
+            <!--android:theme="@style/AppTheme.NoActionBar" />-->
         <activity
             android:name=".mainpages.friendspage.SearchForFriendsEngine"
             android:label="Search Friends" />
-        <activity
-            android:name=".mainpages.gamespage.GameActivity"
-            android:label="Games"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <!--<activity-->
+            <!--android:name=".mainpages.gamespage.GameActivity"-->
+            <!--android:label="Games"-->
+            <!--android:theme="@style/AppTheme.NoActionBar" />-->
         <activity
             android:name=".loginregister.AccRegisterActivity"
             android:label="Register" />
@@ -79,7 +77,11 @@
         <activity
             android:name=".mainpages.gamespage.matchingame.TheMatchingGameActivity"
             android:label="The Matching Game" />
-        <activity android:name=".mainpages.SettingsActivity"></activity>
+        <!--<activity android:name=".mainpages.settingspage.SettingsActivity"-->
+            <!--android:label="Settings"-->
+            <!--android:theme="@style/AppTheme.NoActionBar" />-->
+        <activity android:name=".loginregister.LoginActivity"
+            android:label="Login"></activity>
     </application>
 
 </manifest>

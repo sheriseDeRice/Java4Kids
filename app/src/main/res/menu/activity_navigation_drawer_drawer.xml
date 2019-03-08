@@ -6,33 +6,33 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_profile"
-            android:icon="@drawable/ic_launcher_background"
+            android:icon="@drawable/ic_account_circle_black_24dp"
             android:title="Profile" />
         <item
             android:id="@+id/nav_game"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_videogame_asset_black_24dp"
             android:title="Game" />
         <item
             android:id="@+id/nav_progress"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_assignment_black_24dp"
             android:title="Progress" />
         <item
             android:id="@+id/nav_friends"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_people_black_24dp"
             android:title="Friends" />
         <item
             android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_settings_black_24dp"
             android:title="Settings" />
-        <item
-            android:id="@+id/nav_login"
-            android:icon="@drawable/ic_menu_send"
-            android:title="Login" />
-        <item
-            android:id="@+id/nav_logout"
-            android:icon="@drawable/ic_menu_send"
-            android:visible="false"
-            android:title="Log out" />
+        <!--<item-->
+            <!--android:id="@+id/nav_login"-->
+            <!--android:icon="@drawable/ic_menu_send"-->
+            <!--android:title="Login" />-->
+        <!--<item-->
+            <!--android:id="@+id/nav_logout"-->
+            <!--android:icon="@drawable/ic_menu_send"-->
+            <!--android:visible="false"-->
+            <!--android:title="Log out" />-->
     </group>
 
 </menu>
