@@ -1,15 +1,136 @@
 <resources>
     <string name="app_name">Java4Kids</string>
+
+    <!-- Strings related to Startup page -->
+    <string name="app_version">version 0.0.0</string>
+    <string name="app_startup_screen">app startup screen</string>
+    <string name="startapp">Start!</string>
+    <string name="startapp_login">Login!</string>
+    <string name="back">Back</string>
+
+    <!-- Strings related to NavigationDrawer -->
     <string name="title_activity_navigation_drawer">NavigationDrawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_login">Sign in</string>
 
-    <!-- Strings related to login -->
+    <!-- Strings related to Profile -->
+    <string name="username_colon">Username:</string>
+    <string name="firstname_colon">Firstname:</string>
+    <string name="game_point_colon">Game point:</string>
+    <string name="ranking">Ranking</string>
+    <string name="ranking_colon">Ranking:</string>
+    <string name="points">Points</string>
+    <string name="level_colon">Level:</string>
+    <string name="user_icon">user icon</string>
+
+    <!-- Strings related to Game page -->
+    <string name="topic_procedural_programming">Topic: Procedural Programming</string>
+    <string name="level_2">Level 2</string>
+    <string name="level_3">Level 3</string>
+    <string name="separate_line">----------------------------------------------</string>
+    <string name="level_1">Level 1</string>
+    <string name="game_2_drag_and_drop_the_right_answer">Game 2: Drag and Drop the right answer</string>
+    <string name="game_1_chose_the_correct_answer">Game 1: Chose the correct answer</string>
+    <string name="game_3_matching_the_pieces">Game 3: Matching the pieces</string>
+    <string name="more_games_and_more_programming_topic_will_be_coming_up_soon">More games and more programming topic will be coming up soon!!!</string>
+    <string name="chose_level1_icon">chose_level1_icon</string>
+    <string name="dragdrop_level1_icon">dragdrop_level1_icon</string>
+
+    <!-- Strings related to Chosing the right answer game -->
+    <string name="question">Question</string>
+    <string name="button1">button1</string>
+    <string name="button2">button2</string>
+    <string name="button3">button3</string>
+    <string name="button4">button4</string>
+    <string name="button5">button5</string>
+    <string name="button6">button6</string>
+    <string name="score_0_question_5_5">score: 0 question: 1/5</string>
+
+    <!-- Strings related to Drag and Drop game -->
+    <string name="underline">___________</string>
+    <string name="drag_1">drag 1</string>
+    <string name="drag_2">drag 2</string>
+    <string name="drag_3">Drag 3</string>
+    <string name="drag_4">Drag 4</string>
+    <string name="drag_5">Drag 5</string>
+    <string name="next">Next</string>
+
+    <!-- Strings related to Friend page -->
+    <string name="friends_list">Friends List:</string>
+    <string name="username">Username</string>
+    <string name="level">Level</string>
+    <string name="score">Score</string>
+    <string name="please_login_to_view">Please login to view.</string>
+    <string name="no_network">No Network :(</string>
+    <string name="level_0">Level: 0</string>
+    <string name="score_0">Score: 0</string>
+
+    <!-- Strings related to Search friend Engine -->
+    <string name="default_name">Default</string>
+    <string name="welcome_back">Welcome back :)</string>
+    <string name="no_data">No Data :(</string>
+
+    <!-- Strings related to Progress page -->
+    <string name="days">Days</string>
+    <string name="_0">0%</string>
+    <string name="chapter_1">Chapter 1</string>
+    <string name="complement">Complement</string>
+    <string name="tasks_complement">Tasks complement:</string>
+    <string name="login_trend">Login Strike:</string>
+    <string name="mon">Mon</string>
+    <string name="tue">Tue</string>
+    <string name="wed">Wed</string>
+    <string name="sat">Sat</string>
+    <string name="thu">Thu</string>
+    <string name="sun">Sun</string>
+    <string name="fri">Fri</string>
+    <string name="login_bonus_points">Login \nBonus \n(points)</string>
+
+    <!-- Strings related to Settings -->
+    <string name="edit_icon">Edit icon</string>
+    <string name="edit_username">Edit username</string>
+    <string name="change_background">Change background</string>
+    <string name="q_amp_a"><![CDATA[Q & A]]></string>
+    <string name="login">Login</string>
+    <string name="log_out">Log out</string>
+
+    <!-- Strings related to Q and A -->
+    <string name="q_and_a"><u>Q and A</u></string>
+    <string name="question_1">Question 1</string>
+
+    <!-- Strings related to Login -->
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register_me"><![CDATA[Register Me ->]]></string>
+
+    <!-- Strings related to Register -->
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="age">Age</string>
+    <string name="boy">Boy</string>
+    <string name="girl">Girl</string>
+    <string name="please_fill_in_the_form_below_n_if_you_are_under_10_years_old_please_have_your_parent_to_create_this_account_for_you">* Please fill in the form below.  * If you are under 10 years-old, please have your parent to create this account for you.</string>
+    <string name="privacy">Privacy</string>
+    <string name="register_agreement">I understand that my details will be stored privately and will not be shared to a third party.  The personal information asked above is only for data collection use.</string>
+    <string name="register">Register</string>
+    <string name="create_new_account">Create New Account :)</string>
+    <string name="confirm_password">Confirm password</string>
+
+    <!-- Strings related to popup lesson description -->
+    <string name="x">x</string>
+    <string name="lesson_topic">Lesson topic</string>
+    <string name="content_description">Content Description</string>
+    <string name="start">Start!</string>
+
+    <!-- Strings related to popup lesson summary -->
+    <string name="done">Done!</string>
+    <string name="answered_result">Answered correctly: 0 \nAnswered wrong: 0 \nScore: 0</string>
+    <string name="lesson_summary">Lesson summary</string>
+
+    <!-- Strings related to login Pro -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -18,84 +139,10 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."
     </string>
-    <string name="action_login">action_login</string>
-    <string name="title_activity_settings">Settings</string>
-
-    <!-- Strings related to Settings -->
-
-    <!-- Example General settings -->
-    <string name="pref_header_general">General</string>
-
-    <string name="pref_title_social_recommendations">Enable social recommendations</string>
-    <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
-    </string>
-
-    <string name="pref_title_display_name">Display name</string>
-    <string name="pref_default_display_name">John Smith</string>
-
-    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
-    <string-array name="pref_example_list_titles">
-        <item>Always</item>
-        <item>When possible</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_example_list_values">
-        <item>1</item>
-        <item>0</item>
-        <item>-1</item>
-    </string-array>
-
-    <!-- Example settings for Data & Sync -->
-    <string name="pref_header_data_sync">Data &amp; sync</string>
-
-    <string name="pref_title_sync_frequency">Sync frequency</string>
-    <string-array name="pref_sync_frequency_titles">
-        <item>15 minutes</item>
-        <item>30 minutes</item>
-        <item>1 hour</item>
-        <item>3 hours</item>
-        <item>6 hours</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_sync_frequency_values">
-        <item>15</item>
-        <item>30</item>
-        <item>60</item>
-        <item>180</item>
-        <item>360</item>
-        <item>-1</item>
-    </string-array>
-
-    <string-array name="list_preference_entries">
-        <item>Entry 1</item>
-        <item>Entry 2</item>
-        <item>Entry 3</item>
-    </string-array>
-
-    <string-array name="list_preference_entry_values">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-    </string-array>
-
-    <string-array name="multi_select_list_preference_default_value" />
-
-    <string name="pref_title_system_sync_settings">System sync settings</string>
-
-    <!-- Example settings for Notifications -->
-    <string name="pref_header_notifications">Notifications</string>
-
-    <string name="pref_title_new_message_notifications">New message notifications</string>
-
-    <string name="pref_title_ringtone">Ringtone</string>
-    <string name="pref_ringtone_silent">Silent</string>
-
-    <string name="pref_title_vibrate">Vibrate</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="java_programming"><![CDATA[--> Java Programming]]></string>
+    <string name="inheritance">Inheritance</string>
+    <string name="variables">Variables</string>
+    <!-- ends here -->
 </resources>

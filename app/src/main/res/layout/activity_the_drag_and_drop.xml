@@ -4,193 +4,193 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mainpages.gamespage.draganddropgame.TheDragAndDropGameActivity">
+    tools:context=".GamesPage.DragAndDropGame.TheDragAndDropGameActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:paddingTop="16dp"
-        android:paddingRight="16dp"
-        android:paddingLeft="16dp"
-        android:paddingBottom="16dp"
         android:id="@+id/drag_and_drop_default_background">
 
-        <LinearLayout
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/d_game_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <TextView
-                android:id="@+id/d_question"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Question"/>
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:gravity="center">
-
-            <LinearLayout
-                android:id="@+id/drag_n_drop_target1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/DarkSalmon"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="___________" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/drag_n_drop_target2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/DodgerBlue"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="___________" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/drag_n_drop_target3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/Khaki"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <Button
-                    android:id="@+id/button3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="___________" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/drag_n_drop_target4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/LightPink"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <Button
-                    android:id="@+id/button4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="___________" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/drag_n_drop_target5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/Orchid"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <Button
-                    android:id="@+id/button5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="___________" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="25dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:padding="3dp"
-            android:id="@+id/drop_target">
-
-            <Button
-                android:id="@+id/drag_piece1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Piece 1"/>
-
-            <Button
-                android:id="@+id/drag_piece2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Piece 2"/>
-
-            <Button
-                android:id="@+id/drag_piece3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Piece 3"/>
-
-            <Button
-                android:id="@+id/drag_piece4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Piece 4"/>
-
-            <Button
-                android:id="@+id/drag_piece5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Piece 5"/>
-
-        </LinearLayout>
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            app:popupTheme="@style/Theme.AppCompat.Light"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:padding="5dp"
-            android:gravity="center|bottom|end">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <TextView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/d_question"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
+                    android:text="@string/question"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:baselineAligned="false">
+
+                <LinearLayout
+                    android:id="@+id/drag_n_drop_target1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/DarkSalmon"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <Button
+                        android:id="@+id/button1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/underline" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/drag_n_drop_target2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/DodgerBlue"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/underline" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/drag_n_drop_target3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/Khaki"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <Button
+                        android:id="@+id/button3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/underline" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/drag_n_drop_target4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/LightPink"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <Button
+                        android:id="@+id/button4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/underline" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/drag_n_drop_target5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/Orchid"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+                    <Button
+                        android:id="@+id/button5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/underline" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Score: Question: 0"/>
+                android:orientation="horizontal"
+                android:layout_marginTop="25dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:padding="3dp"
+                android:id="@+id/drop_target">
 
-            <Button
-                android:id="@+id/d_next_question"
-                android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/drag_piece1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/drag_1"/>
+                <Button
+                    android:id="@+id/drag_piece2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/drag_2"/>
+                <Button
+                    android:id="@+id/drag_piece3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/drag_3"/>
+                <Button
+                    android:id="@+id/drag_piece4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/drag_4"/>
+                <Button
+                    android:id="@+id/drag_piece5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/drag_5"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Next"/>
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:gravity="center|bottom|end">
+
+                <TextView
+                    android:id="@+id/d_current_question_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="@string/score_0_question_5_5"/>
+
+            </LinearLayout>
+
         </LinearLayout>
-
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

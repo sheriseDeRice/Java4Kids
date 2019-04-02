@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mainpages.friendspage.FriendsActivity">
+    tools:context=".FriendsPage.FriendsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,37 +12,40 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="5dp"
-            android:layout_weight="1">
+            android:layout_width="380dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:background="#8FFF"
+            android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Friends List:"
-                android:textStyle="bold"
-                android:textSize="18dp"/>
+                android:orientation="vertical"
+                android:padding="5dp"
+                android:layout_weight="1">
 
-        </LinearLayout>
+                <include layout = "@layout/content_friend_list"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="0.01"
-            android:gravity="center|bottom|end">
+            </LinearLayout>
 
-            <android.support.design.widget.FloatingActionButton
-                android:id="@+id/fab"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/fab_margin"
-                android:tint="@android:color/white"
-                app:backgroundTint="@color/Green"
-                app:srcCompat="@drawable/ic_group_add_black_24dp" />
+                android:orientation="vertical"
+                android:layout_weight="0.01"
+                android:gravity="center|bottom|end">
 
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/fab_margin"
+                    android:tint="@android:color/white"
+                    app:backgroundTint="@color/Green"
+                    app:srcCompat="@drawable/ic_person_add_black_24dp" />
+
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

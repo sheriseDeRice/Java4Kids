@@ -4,77 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mainpages.settingspage.SettingsActivity">
+    tools:context=".SettingsPage.SettingsActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="5dp"
-        android:layout_margin="10dp"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/edit_icon"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            style="?android:attr/listSeparatorTextViewStyle"
-            android:text="Edit icon"
-            android:textSize="18dp"
-            android:clickable="true" />
+        <LinearLayout
+            android:layout_width="380dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:background="#8FFF"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-        <TextView
-            android:id="@+id/edit_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            style="?android:attr/listSeparatorTextViewStyle"
-            android:text="Edit name"
-            android:textSize="18dp"
-            android:clickable="true"/>
+            <TextView
+                android:id="@+id/edit_icon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:text="@string/edit_icon"
+                android:textSize="18sp"
+                android:clickable="true"
+                android:focusable="true" />
 
-        <TextView
-            android:id="@+id/edit_background"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            style="?android:attr/listSeparatorTextViewStyle"
-            android:text="Change background"
-            android:textSize="18dp"
-            android:clickable="true"/>
+            <TextView
+                android:id="@+id/edit_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:text="@string/change_background"
+                android:textSize="18sp"
+                android:clickable="true"
+                android:focusable="true" />
 
-        <TextView
-            android:id="@+id/q_and_a"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            style="?android:attr/listSeparatorTextViewStyle"
-            android:text="Q &amp; A"
-            android:textSize="18dp"
-            android:clickable="true"/>
+            <TextView
+                android:id="@+id/q_and_a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:text="@string/q_amp_a"
+                android:textSize="18sp"
+                android:clickable="true"
+                android:focusable="true" />
 
-        <TextView
-            android:id="@+id/go_login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            style="?android:attr/listSeparatorTextViewStyle"
-            android:text="Login"
-            android:textSize="18dp"
-            android:clickable="true"/>
+            <TextView
+                android:id="@+id/go_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:text="@string/login"
+                android:textSize="18sp"
+                android:clickable="true"
+                android:focusable="true" />
 
-        <TextView
-            android:id="@+id/go_logout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            style="?android:attr/listSeparatorTextViewStyle"
-            android:visibility="invisible"
-            android:text="Log out"
-            android:textSize="18dp"
-            android:clickable="true"/>
+            <TextView
+                android:id="@+id/go_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:visibility="invisible"
+                android:text="@string/log_out"
+                android:textSize="18sp"
+                android:clickable="true"
+                android:focusable="true" />
 
-
+        </LinearLayout>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

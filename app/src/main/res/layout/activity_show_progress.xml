@@ -4,178 +4,341 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mainpages.ShowProgressActivity">
+    tools:context=".ProgressPage.ShowProgressActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="5dp">
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login trend:"
-            android:textStyle="bold"
-            android:textSize="15dp"/>
-
-        <com.jjoe64.graphview.GraphView
-            android:layout_width="match_parent"
-            android:layout_height="200dip"
-            android:layout_marginTop="5dp"
-            android:id="@+id/progress_graph" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:text="Tasks complement:"
-            android:textStyle="bold"
-            android:textSize="15dp"/>
-
-        <TableLayout
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="380dp"
             android:layout_height="match_parent"
-            android:layout_marginTop="5dp"
-            android:stretchColumns="1">
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:background="#8FFF"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-            <TableRow
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:text="@string/login_trend"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
 
-                <TextView
-                    android:text="Chapter 1"
-                    android:textStyle="bold"
-                    android:textColor="@color/White"
-                    android:background="@drawable/table_title_cell_shape"
-                    android:padding="3dip" />
-                <TextView
-                    android:text="Complement"
-                    android:textStyle="bold"
-                    android:textColor="@color/White"
-                    android:background="@drawable/table_title_cell_shape"
-                    android:gravity="right"
-                    android:padding="3dip" />
-
-            </TableRow>
-
-            <TableRow
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
 
-                <TextView
-                    android:text="Variables Type"
-                    android:background="@drawable/table_cell_shape"
-                    android:padding="3dip" />
-                <TextView
-                    android:text="70%"
-                    android:gravity="right"
-                    android:background="@drawable/table_cell_shape"
-                    android:padding="3dip" />
-            </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="@string/days"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:textColor="@color/White"
+                        android:background="@drawable/table_title_cell_shape"
+                        android:padding="3dp"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:text="@string/mon"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:textColor="@color/White"
+                        android:background="@drawable/table_title_cell_shape"
+                        android:gravity="end"
+                        android:padding="3dp"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:text="@string/tue"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:textColor="@color/White"
+                        android:background="@drawable/table_title_cell_shape"
+                        android:gravity="end"
+                        android:padding="3dp"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:text="@string/wed"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:textColor="@color/White"
+                        android:background="@drawable/table_title_cell_shape"
+                        android:gravity="end"
+                        android:padding="3dp"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:text="@string/thu"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:textColor="@color/White"
+                        android:background="@drawable/table_title_cell_shape"
+                        android:gravity="end"
+                        android:padding="3dp"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:text="@string/fri"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:textColor="@color/White"
+                        android:background="@drawable/table_title_cell_shape"
+                        android:gravity="end"
+                        android:padding="3dp"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:text="@string/sat"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:textColor="@color/White"
+                        android:background="@drawable/table_title_cell_shape"
+                        android:gravity="end"
+                        android:padding="3dp"
+                        android:layout_weight="1"/>
+                    <TextView
+                        android:text="@string/sun"
+                        android:textStyle="bold"
+                        android:textSize="15dp"
+                        android:textColor="@color/White"
+                        android:background="@drawable/table_title_cell_shape"
+                        android:gravity="end"
+                        android:padding="3dp"
+                        android:layout_weight="1"/>
+                </TableRow>
 
-            <TableRow
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <TextView
+                        android:text="@string/login_bonus_points"
+                        android:textSize="15dp"
+                        android:background="@drawable/table_title_cell_shape"
+                        android:textStyle="bold"
+                        android:textColor="@color/White"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:id="@+id/monday_bonus"
+                        android:text="\n+0\n"
+                        android:textSize="15dp"
+                        android:gravity="end"
+                        android:background="@drawable/table_cell_shape"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:id="@+id/tuesday_bonus"
+                        android:text="\n+0\n"
+                        android:textSize="15dp"
+                        android:gravity="end"
+                        android:background="@drawable/table_cell_shape"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:id="@+id/wednesday_bonus"
+                        android:text="\n+0\n"
+                        android:textSize="15dp"
+                        android:gravity="end"
+                        android:background="@drawable/table_cell_shape"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:id="@+id/thursday_bonus"
+                        android:text="\n+0\n"
+                        android:textSize="15dp"
+                        android:gravity="end"
+                        android:background="@drawable/table_cell_shape"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:id="@+id/friday_bonus"
+                        android:text="\n+0\n"
+                        android:textSize="15dp"
+                        android:gravity="end"
+                        android:background="@drawable/table_cell_shape"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:id="@+id/saturday_bonus"
+                        android:text="\n+0\n"
+                        android:textSize="15dp"
+                        android:gravity="end"
+                        android:background="@drawable/table_cell_shape"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                    <TextView
+                        android:id="@+id/sunday_bonus"
+                        android:text="\n+0\n"
+                        android:textSize="15dp"
+                        android:gravity="end"
+                        android:background="@drawable/table_cell_shape"
+                        android:layout_weight="1"
+                        android:padding="3dip" />
+                </TableRow>
+            </TableLayout>
+
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/tasks_complement"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
 
-                <TextView
-                    android:text="Methods"
-                    android:background="@drawable/table_cell_shape"
-                    android:padding="3dip" />
-                <TextView
-                    android:text="0%"
-                    android:gravity="right"
-                    android:background="@drawable/table_cell_shape"
-                    android:padding="3dip" />
-            </TableRow>
-
-            <TableRow
+            <TableLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:stretchColumns="1">
 
-                <TextView
-                    android:text="Array"
-                    android:background="@drawable/table_cell_shape"
-                    android:padding="3dip" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:text="@string/chapter_1"
+                        android:textStyle="bold"
+                        android:textColor="@color/White"
+                        android:textSize="15dp"
+                        android:background="@drawable/table_title_cell_shape"
+                        android:padding="3dip" />
+                    <TextView
+                        android:text="@string/complement"
+                        android:textStyle="bold"
+                        android:textColor="@color/White"
+                        android:textSize="15dp"
+                        android:background="@drawable/table_title_cell_shape"
+                        android:gravity="end"
+                        android:padding="3dip" />
+                </TableRow>
 
-                <TextView
-                    android:text="0%"
-                    android:gravity="right"
-                    android:background="@drawable/table_cell_shape"
-                    android:padding="3dip" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:id="@+id/lesson1_title"
+                        android:text="Variables Type"
+                        android:textSize="15dp"
+                        android:background="@drawable/table_cell_shape"
+                        android:padding="3dip" />
+                    <TextView
+                        android:id="@+id/lesson1_progress"
+                        android:text="@string/_0"
+                        android:textSize="15dp"
+                        android:gravity="end"
+                        android:background="@drawable/table_cell_shape"
+                        android:padding="3dip" />
+                </TableRow>
 
-            </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:id="@+id/lesson2_title"
+                        android:text="Methods"
+                        android:textSize="15dp"
+                        android:background="@drawable/table_cell_shape"
+                        android:padding="3dip" />
+                    <TextView
+                        android:id="@+id/lesson2_progress"
+                        android:text="@string/_0"
+                        android:textSize="15dp"
+                        android:gravity="end"
+                        android:background="@drawable/table_cell_shape"
+                        android:padding="3dip" />
+                </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:id="@+id/lesson3_title"
+                        android:text="Array"
+                        android:textSize="15dp"
+                        android:background="@drawable/table_cell_shape"
+                        android:padding="3dip" />
+                    <TextView
+                        android:id="@+id/lesson3_progress"
+                        android:text="@string/_0"
+                        android:textSize="15dp"
+                        android:gravity="end"
+                        android:background="@drawable/table_cell_shape"
+                        android:padding="3dip" />
+                </TableRow>
 
-                <TextView
-                    android:text="Class"
-                    android:background="@drawable/table_cell_shape"
-                    android:padding="3dip" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:id="@+id/lesson4_title"
+                        android:text="Class"
+                        android:textSize="15dp"
+                        android:background="@drawable/table_cell_shape"
+                        android:padding="3dip" />
+                    <TextView
+                        android:id="@+id/lesson4_progress"
+                        android:text="@string/_0"
+                        android:textSize="15dp"
+                        android:gravity="end"
+                        android:background="@drawable/table_cell_shape"
+                        android:padding="3dip" />
+                </TableRow>
 
-                <TextView
-                    android:text="0%"
-                    android:gravity="right"
-                    android:background="@drawable/table_cell_shape"
-                    android:padding="3dip" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:id="@+id/lesson5_title"
+                        android:text=""
+                        android:textSize="15dp"
+                        android:background="@drawable/table_cell_shape"
+                        android:padding="3dip" />
+                    <TextView
+                        android:id="@+id/lesson5_progress"
+                        android:text=""
+                        android:textSize="15dp"
+                        android:gravity="end"
+                        android:background="@drawable/table_cell_shape"
+                        android:padding="3dip" />
+                </TableRow>
 
-            </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:id="@+id/lesson6_title"
+                        android:text=""
+                        android:textSize="15dp"
+                        android:background="@drawable/table_cell_shape"
+                        android:padding="3dip" />
+                    <TextView
+                        android:id="@+id/lesson6_progress"
+                        android:text=""
+                        android:textSize="15dp"
+                        android:gravity="end"
+                        android:background="@drawable/table_cell_shape"
+                        android:padding="3dip" />
+                </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <TextView
-                    android:text="..."
-                    android:background="@drawable/table_cell_shape"
-                    android:padding="3dip" />
-
-                <TextView
-                    android:text="0%"
-                    android:gravity="right"
-                    android:background="@drawable/table_cell_shape"
-                    android:padding="3dip" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <TextView
-                    android:text="..."
-                    android:background="@drawable/table_cell_shape"
-                    android:padding="3dip" />
-
-                <TextView
-                    android:text="0%"
-                    android:gravity="right"
-                    android:background="@drawable/table_cell_shape"
-                    android:padding="3dip" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <TextView
-                    android:text="..."
-                    android:background="@drawable/table_cell_shape"
-                    android:padding="3dip" />
-
-                <TextView
-                    android:text="0%"
-                    android:gravity="right"
-                    android:background="@drawable/table_cell_shape"
-                    android:padding="3dip" />
-
-            </TableRow>
-        </TableLayout>
-
-
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                    <TextView
+                        android:id="@+id/lesson7_title"
+                        android:text=""
+                        android:textSize="15dp"
+                        android:background="@drawable/table_cell_shape"
+                        android:padding="3dip" />
+                    <TextView
+                        android:id="@+id/lesson7_progress"
+                        android:text=""
+                        android:textSize="15dp"
+                        android:gravity="end"
+                        android:background="@drawable/table_cell_shape"
+                        android:padding="3dip" />
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>

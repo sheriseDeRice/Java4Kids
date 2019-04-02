@@ -1,6 +1,5 @@
 package com.example.sherisesinyeelam.java4kids;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -10,15 +9,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.sherisesinyeelam.java4kids.mainpages.settingspage.SettingsActivity;
-import com.example.sherisesinyeelam.java4kids.mainpages.friendspage.FriendsActivity;
-import com.example.sherisesinyeelam.java4kids.mainpages.gamespage.GameActivity;
-import com.example.sherisesinyeelam.java4kids.mainpages.ShowProgressActivity;
-import com.example.sherisesinyeelam.java4kids.mainpages.UserProfileActivity;
-import com.jjoe64.graphview.GraphView;
+import com.example.sherisesinyeelam.java4kids.ProgressPage.ShowProgressActivity;
+import com.example.sherisesinyeelam.java4kids.SettingsPage.SettingsActivity;
+import com.example.sherisesinyeelam.java4kids.FriendsPage.FriendsActivity;
+import com.example.sherisesinyeelam.java4kids.GamesPage.GameActivity;
+import com.example.sherisesinyeelam.java4kids.UserProfilePage.UserProfileActivity;
 
 import java.util.Calendar;
 
@@ -29,9 +29,7 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
     ActionBarDrawerToggle toggle;
     NavigationView navigationView;
 
-    Bundle bundle;
-    String login_status;
-
+    ImageView icon;
     TextView username, greetings;
 
     @Override
@@ -40,35 +38,104 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
         setContentView(R.layout.activity_navigation_drawer);
         autoChangeBackground(); // change background according to the time.
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new UserProfileActivity()).commit();
-
-
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-//         changing the header
-//        View headerView = navigationView.inflateHeaderView(R.layout.nav_header_navigation_drawer);
-//        username = (TextView) headerView.findViewById(R.id.nav_user_name);
-//        greetings = (TextView) headerView.findViewById(R.id.nav_greetings);
-        username = (TextView) findViewById(R.id.nav_user_name);
-        greetings = (TextView) findViewById(R.id.nav_greetings);
+        // Change the header
+        View hView =  navigationView.getHeaderView(0);
+        icon = (ImageView) hView.findViewById(R.id.imageView);
+        username = (TextView)hView.findViewById(R.id.nav_user_name);
+        greetings = (TextView) hView.findViewById(R.id.nav_greetings);
+        greetings.setText("How are you doing?");
 
-        try {
-            // the following collect the data that have been passed from login.
-            bundle = getIntent().getExtras();
-            login_status = bundle.getString("login_status");
+        if(SharedPrefManager.getInstance(NavigationDrawer.this).checkLoginOrNot()){
+            //if user already logged in.
+            int iconID = SharedPrefManager.getInstance(this).getUserIcon();
+            icon.setImageResource(iconID);
+            String usernameGreet = "Hi! " + SharedPrefManager.getInstance(this).getUsername();
+            username.setText(usernameGreet);
+        } else {
+            if(LocalSharedPrefManager.getInstance(NavigationDrawer.this).checkLoginOrNot()){
+                int iconID = LocalSharedPrefManager.getInstance(this).getUserIcon();
+                icon.setImageResource(iconID);
+                String nicknameGreet = "Hi! " + LocalSharedPrefManager.getInstance(this).getNickname();
+                username.setText(nicknameGreet);
+            }
+            //username.setText("Hi!");
+        }
+        checkLoginBonus();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new ShowProgressActivity()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new UserProfileActivity()).commit();
+    }
 
-        } catch (Exception e){}
+    // here to give login bonus
+    public void checkLoginBonus(){
+        // check login date
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        String todayDate = year + "" + month + "" + day;
 
+        if(LocalSharedPrefManager.getInstance(NavigationDrawer.this).checkLoginOrNot()) {
+            // if logged in as a guest
+            boolean rewarded = LocalSharedPrefManager.getInstance(NavigationDrawer.this).getLoginTrend(todayDate);
+            if (rewarded == false) {
+                // give bonus
+                Toast.makeText(NavigationDrawer.this, "Daily reward! Login Bonus Added!", Toast.LENGTH_SHORT).show();
+            }
+        } else if (SharedPrefManager.getInstance(NavigationDrawer.this).checkLoginOrNot()){
+            // if logged as registered user
+            boolean rewarded = SharedPrefManager.getInstance(NavigationDrawer.this).getLoginTrend(todayDate);
+            if (rewarded == false) {
+                // give reward
+                Toast.makeText(NavigationDrawer.this, "Daily reward! Login Bonus Added!", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+        if (id == R.id.nav_profile) {
+            // Handle the game action
+            UserProfileActivity userProfileActivity = new UserProfileActivity();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, userProfileActivity).commit();
+
+        } else if (id == R.id.nav_game) {
+            // Handle the game action
+            GameActivity gameActivity = new GameActivity();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, gameActivity).commit();
+
+        } else if (id == R.id.nav_progress) {
+            // Handle the progress action
+            ShowProgressActivity showProgressActivity = new ShowProgressActivity();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, showProgressActivity).commit();
+
+        } else if (id == R.id.nav_friends) {
+            // Handle the friends action
+            FriendsActivity friendsActivity = new FriendsActivity();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, friendsActivity).commit();
+
+        } else if (id == R.id.nav_settings) {
+            // Handle the settings action
+            SettingsActivity settingsActivity = new SettingsActivity();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, settingsActivity).commit();
+
+        }
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 
     @Override
@@ -81,89 +148,9 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
         }
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-
-        // TODO check how to pass data through the whole app
-
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_profile) {
-            // Handle the game action
-//            Intent intent = new Intent(NavigationDrawer.this, UserProfileActivity.class);
-//            try {
-//                if (login_status.equals("success")) {
-//                    intent.putExtra("login_status", "success");
-//                }
-//            } catch (Exception e) {}
-//            startActivity(intent);
-            UserProfileActivity userProfileActivity = new UserProfileActivity();
-            try {
-                if (login_status.equals("success")) {
-                    bundle.putString("login_status", "success");
-                    userProfileActivity.setArguments(bundle);
-                }
-            } catch (Exception e) {}
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, userProfileActivity).commit();
-
-        } else if (id == R.id.nav_game) {
-            // Handle the game action
-            GameActivity gameActivity = new GameActivity();
-            try {
-                if (login_status.equals("success")) {
-                    bundle.putString("login_status", "success");
-                    gameActivity.setArguments(bundle);
-                }
-            } catch (Exception e) {}
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, gameActivity).commit();
-
-        } else if (id == R.id.nav_progress) {
-            // Handle the progress action
-            ShowProgressActivity showProgressActivity = new ShowProgressActivity();
-            try {
-                if (login_status.equals("success")) {
-                    bundle.putString("login_status", "success");
-                    showProgressActivity.setArguments(bundle);
-                }
-            } catch (Exception e) {}
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, showProgressActivity).commit();
-
-        } else if (id == R.id.nav_friends) {
-            // Handle the friends action
-            FriendsActivity friendsActivity = new FriendsActivity();
-            try {
-                if (login_status.equals("success")) {
-                    bundle.putString("login_status", "success");
-                    friendsActivity.setArguments(bundle);
-                }
-            } catch (Exception e) {}
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, friendsActivity).commit();
-
-        } else if (id == R.id.nav_settings) {
-//            // Handle the settings action
-            SettingsActivity settingsActivity = new SettingsActivity();
-            try {
-                if (login_status.equals("success")) {
-                    bundle.putString("login_status", "success");
-                    settingsActivity.setArguments(bundle);
-                }
-            } catch (Exception e) {}
-            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, settingsActivity).commit();
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
     // auto change background according to the time (day/night). These are default background.
     public void autoChangeBackground(){
-
         final RelativeLayout layout = (RelativeLayout) findViewById(R.id.default_background);
-
         Thread t = new Thread() {
             @Override
             public void run() {
@@ -175,11 +162,18 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
                             public void run() {
                                 Calendar c = Calendar.getInstance();
                                 int timeOfDay = c.get(Calendar.HOUR_OF_DAY);
-                                if(timeOfDay >= 7 && timeOfDay < 17){
-                                    layout.setBackgroundResource(R.color.LightSkyBlue);
-                                }
-                                else{
-                                    layout.setBackgroundResource(R.color.PaleGoldenrod);
+                                if(timeOfDay >= 3 && timeOfDay < 7){
+                                    layout.setBackgroundResource(R.mipmap.a1bg_3amto7am);
+                                } else if (timeOfDay >= 7 && timeOfDay < 8){
+                                    layout.setBackgroundResource(R.mipmap.a2bg_7amto8am);
+                                } else if (timeOfDay >= 8 && timeOfDay < 16){
+                                    layout.setBackgroundResource(R.mipmap.a3bg_8amto4pm);
+                                } else if (timeOfDay >= 16 && timeOfDay < 17){
+                                    layout.setBackgroundResource(R.mipmap.a4bg_4pmto5pm);
+                                } else if (timeOfDay >= 17 && timeOfDay < 20){
+                                    layout.setBackgroundResource(R.mipmap.a5bg_5pmto8pm);
+                                } else {
+                                    layout.setBackgroundResource(R.mipmap.a6bg_8pmto3am);
                                 }
                             }
                         });
@@ -189,7 +183,6 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
             }
         };
         t.start();
-
     }
 }
 

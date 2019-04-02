@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".loginregister.LoginActivity">
+    tools:context=".LoginAndRegister.LoginActivity">
 
     <LinearLayout
         android:id="@+id/login_default_background"
@@ -14,42 +14,56 @@
         android:layout_weight="0.8"
         android:padding="10dp">
 
-        <EditText
-            android:id="@+id/login_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:hint="Email" />
+    <LinearLayout
+        android:layout_width="380dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:background="#8FFF"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:padding="10dp">
 
-        <EditText
-            android:id="@+id/login_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"
-            android:ems="10"
-            android:inputType="textPassword"
-            android:hint="Password" />
+            <EditText
+                android:id="@+id/login_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:hint="@string/email"
+                android:importantForAutofill="no" tools:targetApi="o"/>
 
-        <Button
-            android:id="@+id/login_signin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_gravity="center"
-            android:text="sign in"/>
+            <EditText
+                android:id="@+id/login_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:inputType="textPassword"
+                android:hint="@string/password"
+                android:importantForAutofill="no" tools:targetApi="o"/>
 
-        <TextView
-            android:id="@+id/login_registerMe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_gravity="center"
-            android:clickable="true"
-            android:text="Register Me ->" />
+            <Button
+                android:id="@+id/login_signin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:text="@string/login"/>
+
+            <TextView
+                android:id="@+id/login_registerMe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:clickable="true"
+                android:text="@string/register_me"
+                android:focusable="true" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

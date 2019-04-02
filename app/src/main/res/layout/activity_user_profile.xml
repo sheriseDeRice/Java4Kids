@@ -4,67 +4,157 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mainpages.UserProfileActivity">
+    tools:context=".UserProfilePage.UserProfileActivity"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
 
         <LinearLayout
-            android:id="@+id/user_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="380dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:background="#8FFF"
             android:orientation="vertical"
-            android:padding="5dp"
-            android:gravity="center"
-            android:layout_weight="2">
+            android:padding="5dp">
 
-            <ImageView
-                android:id="@+id/user_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/ic_launcher_round" />
-
-            <TextView
-                android:id="@+id/user_name"
+            <LinearLayout
+                android:id="@+id/user_description"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:padding="5dp"
                 android:gravity="center"
-                android:text="Name:"/>
+                android:layout_weight="2">
 
-            <TextView
-                android:id="@+id/user_level"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:text="Level:"/>
+                <ImageView
+                    android:id="@+id/user_icon"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:adjustViewBounds="true"
+                    app:srcCompat="@mipmap/ic_launcher_round"
+                    android:contentDescription="@string/user_icon" />
 
-            <TextView
-                android:id="@+id/user_point"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:text="Game point:"/>
+                <TableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="100dp">
 
-            <TextView
-                android:id="@+id/user_number_of_friends"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:text="Number of friends:"/>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:id="@+id/user_name_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:gravity="start"
+                            android:textStyle="bold"
+                            android:textSize="18dp"
+                            android:text="@string/username_colon"/>
+                        <TextView
+                            android:id="@+id/user_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="18dp"
 
-            <TextView
-                android:id="@+id/user_ranking"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:text="Ranking:"/>
+                            android:padding="10dp"
+                            android:gravity="end"
+                            android:text="@string/username"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/row2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:textSize="18dp"
+                            android:gravity="start"
+                            android:textStyle="bold"
+                            android:text="@string/firstname_colon"/>
+                        <TextView
+                            android:id="@+id/user_firstname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:textSize="18dp"
+                            android:gravity="end"
+                            android:text="@string/first_name"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:textSize="18dp"
+                            android:gravity="start"
+                            android:textStyle="bold"
+                            android:text="@string/level_colon"/>
+                        <TextView
+                            android:id="@+id/user_level"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:textSize="18dp"
+                            android:gravity="end"
+                            android:text="@string/level"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:textSize="18dp"
+                            android:gravity="start"
+                            android:textStyle="bold"
+                            android:text="@string/game_point_colon"/>
+                        <TextView
+                            android:id="@+id/user_point"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:textSize="18dp"
+                            android:gravity="end"
+                            android:text="@string/points"/>
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/row5"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:gravity="start"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            android:text="@string/ranking_colon"/>
+                        <TextView
+                            android:id="@+id/user_ranking"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:gravity="end"
+                            android:textSize="18dp"
+                            android:text="@string/ranking"/>
+                    </TableRow>
+                </TableLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 

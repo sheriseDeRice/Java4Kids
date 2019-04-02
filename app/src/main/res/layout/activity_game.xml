@@ -4,394 +4,273 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mainpages.gamespage.GameActivity">
+    tools:context=".GamesPage.GameActivity">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="12dp">
+            android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:text="Topic: Procedural Programming" />
-
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="10dp"-->
-                <!--android:layout_marginLeft="10dp"-->
-                <!--android:layout_marginRight="10dp"-->
-                <!--android:textStyle="bold"-->
-                <!--android:textSize="15sp"-->
-                <!--android:text="Game: Links the correct pairs" />-->
-
-            <!--<HorizontalScrollView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent">-->
-
-                <!--<LinearLayout-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:orientation="horizontal"-->
-                    <!--android:padding="5dp">-->
-                    <!--<LinearLayout-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:orientation="vertical"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:gravity="center">-->
-
-                        <!--<ImageButton-->
-                            <!--android:id="@+id/linking_level1"-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_marginTop="10dp"-->
-                            <!--app:srcCompat="@mipmap/ic_launcher" />-->
-
-                        <!--<TextView-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_marginTop="3dp"-->
-                            <!--android:text="Level 1"-->
-                            <!--android:textSize="12sp"-->
-                            <!--android:textStyle="bold" />-->
-                    <!--</LinearLayout>-->
-                    <!--<LinearLayout-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="match_parent"-->
-                        <!--android:orientation="vertical"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:gravity="center">-->
-
-                        <!--<ImageButton-->
-                            <!--android:id="@+id/linking_level2"-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_marginTop="10dp"-->
-                            <!--app:srcCompat="@mipmap/ic_launcher" />-->
-
-                        <!--<TextView-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_marginTop="3dp"-->
-                            <!--android:text="Level 2"-->
-                            <!--android:textSize="12sp"-->
-                            <!--android:textStyle="bold" />-->
-                    <!--</LinearLayout>-->
-                    <!--<LinearLayout-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="match_parent"-->
-                        <!--android:orientation="vertical"-->
-                        <!--android:layout_weight="1"-->
-                        <!--android:gravity="center">-->
-
-                        <!--<ImageButton-->
-                            <!--android:id="@+id/linking_level3"-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_marginTop="10dp"-->
-                            <!--app:srcCompat="@mipmap/ic_launcher" />-->
-
-                        <!--<TextView-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_marginTop="3dp"-->
-                            <!--android:text="Level 3"-->
-                            <!--android:textSize="12sp"-->
-                            <!--android:textStyle="bold" />-->
-                    <!--</LinearLayout>-->
-                    <!--<LinearLayout-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="match_parent"-->
-                        <!--android:orientation="vertical"-->
-                        <!--android:gravity="center"-->
-                        <!--android:layout_weight="1">-->
-
-                        <!--<ImageButton-->
-                            <!--android:id="@+id/linking_level4"-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_marginTop="10dp"-->
-                            <!--app:srcCompat="@mipmap/ic_launcher" />-->
-
-                        <!--<TextView-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_marginTop="3dp"-->
-                            <!--android:text="Level 4"-->
-                            <!--android:textSize="12sp"-->
-                            <!--android:textStyle="bold" />-->
-                    <!--</LinearLayout>-->
-                    <!--<LinearLayout-->
-                        <!--android:layout_width="wrap_content"-->
-                        <!--android:layout_height="match_parent"-->
-                        <!--android:orientation="vertical"-->
-                        <!--android:gravity="center"-->
-                        <!--android:layout_weight="1">-->
-
-                        <!--<ImageButton-->
-                            <!--android:id="@+id/linking_level5"-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_marginTop="10dp"-->
-                            <!--app:srcCompat="@mipmap/ic_launcher" />-->
-
-                        <!--<TextView-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="wrap_content"-->
-                            <!--android:layout_marginTop="3dp"-->
-                            <!--android:text="Level 5"-->
-                            <!--android:textSize="12sp"-->
-                            <!--android:textStyle="bold" />-->
-                    <!--</LinearLayout>-->
-                <!--</LinearLayout>-->
-            <!--</HorizontalScrollView>-->
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="380dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:background="#8FFF"
+                android:orientation="vertical"
                 android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:text="Game 1: Chose the correct answer" />
+                android:padding="10dp">
 
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:text="@string/java_programming" />
+
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:layout_marginRight="10dp"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textSize="15sp"-->
+                    <!--android:text="Game: Links the correct pairs" />-->
+
+                <!--<HorizontalScrollView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent">-->
+
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:orientation="horizontal"-->
+                        <!--android:padding="5dp">-->
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:orientation="vertical"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:gravity="center">-->
+
+                            <!--<ImageButton-->
+                                <!--android:id="@+id/linking_level1"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_marginTop="10dp"-->
+                                <!--app:srcCompat="@mipmap/ic_launcher" />-->
+
+                            <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_marginTop="3dp"-->
+                                <!--android:text="Level 1"-->
+                                <!--android:textSize="12sp"-->
+                                <!--android:textStyle="bold" />-->
+                        <!--</LinearLayout>-->
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:orientation="vertical"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:gravity="center">-->
+
+                            <!--<ImageButton-->
+                                <!--android:id="@+id/linking_level2"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_marginTop="10dp"-->
+                                <!--app:srcCompat="@mipmap/ic_launcher" />-->
+
+                            <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_marginTop="3dp"-->
+                                <!--android:text="Level 2"-->
+                                <!--android:textSize="12sp"-->
+                                <!--android:textStyle="bold" />-->
+                        <!--</LinearLayout>-->
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:orientation="vertical"-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:gravity="center">-->
+
+                            <!--<ImageButton-->
+                                <!--android:id="@+id/linking_level3"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_marginTop="10dp"-->
+                                <!--app:srcCompat="@mipmap/ic_launcher" />-->
+
+                            <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_marginTop="3dp"-->
+                                <!--android:text="Level 3"-->
+                                <!--android:textSize="12sp"-->
+                                <!--android:textStyle="bold" />-->
+                        <!--</LinearLayout>-->
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:orientation="vertical"-->
+                            <!--android:gravity="center"-->
+                            <!--android:layout_weight="1">-->
+
+                            <!--<ImageButton-->
+                                <!--android:id="@+id/linking_level4"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_marginTop="10dp"-->
+                                <!--app:srcCompat="@mipmap/ic_launcher" />-->
+
+                            <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_marginTop="3dp"-->
+                                <!--android:text="Level 4"-->
+                                <!--android:textSize="12sp"-->
+                                <!--android:textStyle="bold" />-->
+                        <!--</LinearLayout>-->
+                        <!--<LinearLayout-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="match_parent"-->
+                            <!--android:orientation="vertical"-->
+                            <!--android:gravity="center"-->
+                            <!--android:layout_weight="1">-->
+
+                            <!--<ImageButton-->
+                                <!--android:id="@+id/linking_level5"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_marginTop="10dp"-->
+                                <!--app:srcCompat="@mipmap/ic_launcher" />-->
+
+                            <!--<TextView-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:layout_marginTop="3dp"-->
+                                <!--android:text="Level 5"-->
+                                <!--android:textSize="12sp"-->
+                                <!--android:textStyle="bold" />-->
+                        <!--</LinearLayout>-->
+                    <!--</LinearLayout>-->
+                <!--</HorizontalScrollView>-->
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:text="@string/game_1_chose_the_correct_answer" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center"
-                    android:padding="5dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_marginHorizontal="10dp"
-                        android:layout_weight="1">
-
-                        <ImageButton
-                            android:id="@+id/chosing_level1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            app:srcCompat="@mipmap/ic_launcher" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
-                            android:text="Level 1"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:layout_weight="1"
-                        android:layout_marginHorizontal="10dp"
-                        android:gravity="center">
-
-                        <ImageButton
-                            android:id="@+id/chosing_level2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            app:srcCompat="@mipmap/ic_launcher" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
-                            android:text="Level 2"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:layout_weight="1"
-                        android:layout_marginHorizontal="10dp"
-                        android:gravity="center">
-
-                        <ImageButton
-                            android:id="@+id/chosing_level3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            app:srcCompat="@mipmap/ic_launcher" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
-                            android:text="Level 3"
-                            android:textSize="12sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_weight="1"
+                    tools:targetApi="o">
+                    <ImageButton
+                        android:id="@+id/chosing_level1"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:srcCompat="@drawable/inheritance_icon"
+                        android:scaleType="fitXY"
+                        android:background="@null"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/chose_level1_icon" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="@string/inheritance"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
-            </HorizontalScrollView>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:text="----------------------------------------------" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:text="Game 2: Drag and Drop the right answer" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_weight="1">
-
-                <ImageButton
-                    android:id="@+id/drag_and_drop_level1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    app:srcCompat="@mipmap/ic_launcher" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="Level 1"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:text="----------------------------------------------" />
-
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="10dp"-->
-                <!--android:textStyle="bold"-->
-                <!--android:textSize="18sp"-->
-                <!--android:text="Topic: _________" />-->
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:text="Game 3: Matching the pieces" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_weight="1">
-
-                <ImageButton
-                    android:id="@+id/matching_level1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    app:srcCompat="@mipmap/ic_launcher" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
                     android:textStyle="bold"
-                    android:textSize="12sp"
-                    android:text="Level 1" />
+                    android:layout_weight="1"
+                    android:textSize="18sp"
+                    android:text="@string/separate_line" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:text="@string/game_2_drag_and_drop_the_right_answer" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:padding="5dp">
+                    <ImageButton
+                        android:id="@+id/drag_and_drop_level1"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:srcCompat="@drawable/variables_icon"
+                        android:scaleType="fitXY"
+                        android:background="@null"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/dragdrop_level1_icon" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="@string/variables"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:text="@string/separate_line" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:text="@string/more_games_and_more_programming_topic_will_be_coming_up_soon"
+                    android:textStyle="bold"
+                    android:textSize="30sp"/>
+
             </LinearLayout>
-
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="10dp"-->
-                <!--android:layout_marginLeft="10dp"-->
-                <!--android:layout_marginRight="10dp"-->
-                <!--android:textStyle="bold"-->
-                <!--android:textSize="15sp"-->
-                <!--android:text="Game 5: Eat the code" />-->
-
-            <!--<LinearLayout-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:orientation="vertical"-->
-                <!--android:gravity="center"-->
-                <!--android:layout_weight="1">-->
-
-                <!--<ImageButton-->
-                    <!--android:id="@+id/snake_level1"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="10dp"-->
-                    <!--app:srcCompat="@mipmap/ic_launcher" />-->
-
-                <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_marginTop="3dp"-->
-                    <!--android:text="Level 1"-->
-                    <!--android:textSize="12sp"-->
-                    <!--android:textStyle="bold" />-->
-            <!--</LinearLayout>-->
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:text="----------------------------------------------" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:text="More games and more programming topic will be coming up soon!!!"
-                android:textStyle="bold"
-                android:textSize="30dp"/>
-
-        </LinearLayout>
-    </ScrollView>
+        </ScrollView>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

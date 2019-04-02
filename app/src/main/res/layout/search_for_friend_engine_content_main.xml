@@ -9,14 +9,15 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".mainpages.friendspage.SearchForFriendsEngine"
+    tools:context=".FriendsPage.SearchForFriendsEngine"
     tools:showIn="@layout/activity_search_for_friends_engine">
 
     <SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        app:defaultQueryHint="Search..." />
+        android:queryHint="Enter friend username here"
+        app:defaultQueryHint="Searching..." />
 
     <ListView
         android:id="@+id/show_listFriend"
@@ -31,7 +32,7 @@
         android:visibility="invisible"
         android:layout_centerInParent="true"
         android:layout_centerVertical="true"
-        android:text="No Data :("/>
+        android:text="@string/no_data"/>
 
     <TextView
         android:id="@+id/noNetwork"
@@ -40,7 +41,7 @@
         android:visibility="invisible"
         android:layout_centerInParent="true"
         android:layout_centerVertical="true"
-        android:text="No Network :("/>
+        android:text="@string/no_network"/>
 
 
 </RelativeLayout>

@@ -7,6 +7,10 @@
     android:layout_height="match_parent"
     tools:context=".StartAppActivity">
 
+    <!--<FrameLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"></FrameLayout>-->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,23 +29,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="Version 0.0.1v"/>
+                android:text="@string/app_version"/>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_weight="1"
             android:gravity="center"
             android:layout_margin="2dp">
 
             <ImageView
                 android:id="@+id/cover_logo"
-                android:layout_width="250dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:contentDescription="app startup screen"
-                app:srcCompat="@mipmap/logo_draft"
+                android:contentDescription="@string/app_startup_screen"
+                app:srcCompat="@drawable/app_icon_v2"
                 android:adjustViewBounds="true" />
         </LinearLayout>
 
@@ -50,27 +54,29 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_weight="2.5"
+            android:layout_weight="3"
             android:gravity="center_vertical|center_horizontal">
 
             <Button
                 android:id="@+id/start_app"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Start!"
+                android:text="@string/startapp"
                 android:textColor="@color/White"
                 android:background="@drawable/button_rounded"
-                android:clickable="true"/>
+                android:clickable="true"
+                android:focusable="true" />
 
             <Button
                 android:id="@+id/cover_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Login!"
+                android:text="@string/startapp_login"
                 android:textColor="@color/White"
                 android:background="@drawable/button_rounded"
-                android:clickable="true"/>
+                android:clickable="true"
+                android:focusable="true" />
 
         </LinearLayout>
 
@@ -88,11 +94,11 @@
                 android:id="@+id/cover_login_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
+                android:layout_gravity="start"
                 android:background="@drawable/button_rounded"
                 android:textColor="@color/White"
-                android:text="Back"
-                android:textSize="15dp"/>
+                android:text="@string/back"
+                android:textSize="15sp"/>
 
             <EditText
                 android:id="@+id/cover_login_email"
@@ -101,7 +107,8 @@
                 android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="textEmailAddress"
-                android:hint="Email" />
+                android:hint="@string/email"
+                android:importantForAutofill="no" tools:targetApi="o"/>
 
             <EditText
                 android:id="@+id/cover_login_password"
@@ -110,7 +117,8 @@
                 android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="textPassword"
-                android:hint="Password" />
+                android:hint="@string/password"
+                android:importantForAutofill="no" tools:targetApi="o"/>
 
             <Button
                 android:id="@+id/cover_login_signin"
@@ -119,7 +127,7 @@
                 android:layout_marginTop="20dp"
                 android:textColor="@color/White"
                 android:background="@drawable/button_rounded"
-                android:text="sign in"/>
+                android:text="@string/login"/>
 
             <TextView
                 android:id="@+id/cover_login_registerMe"
@@ -127,14 +135,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:clickable="true"
-                android:text="Register Me ->" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp">
-
+                android:text="@string/register_me"
+                android:focusable="true" />
 
         </LinearLayout>
 
