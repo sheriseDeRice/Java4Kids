@@ -18,6 +18,7 @@ import com.example.sherisesinyeelam.java4kids.ProgressPage.ShowProgressActivity;
 import com.example.sherisesinyeelam.java4kids.SettingsPage.SettingsActivity;
 import com.example.sherisesinyeelam.java4kids.FriendsPage.FriendsActivity;
 import com.example.sherisesinyeelam.java4kids.GamesPage.GameActivity;
+import com.example.sherisesinyeelam.java4kids.TheWorldLeaderBoard.LeaderBoardActivity;
 import com.example.sherisesinyeelam.java4kids.UserProfilePage.UserProfileActivity;
 
 import java.util.Calendar;
@@ -121,6 +122,11 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
             // Handle the progress action
             ShowProgressActivity showProgressActivity = new ShowProgressActivity();
             getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, showProgressActivity).commit();
+
+        } else if (id == R.id.nav_leading_board) {
+            // Handle the friends action
+            LeaderBoardActivity leaderBoardActivity = new LeaderBoardActivity();
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, leaderBoardActivity).commit();
 
         } else if (id == R.id.nav_friends) {
             // Handle the friends action

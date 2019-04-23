@@ -85,11 +85,10 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="backgroundColor" value="303030" />
+                                      <entry key="backgroundLayerName" value="default_icon_background" />
                                       <entry key="foregroundAssetType" value="CLIP_ART" />
                                       <entry key="foregroundImage" value="$USER_HOME$/Downloads/inheritance_icon.png" />
-                                      <entry key="outputName" value="default_icon" />
-                                      <entry key="previewDensity" value="MEDIUM" />
+                                      <entry key="outputName" value="java4Kids_icon" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -111,6 +110,26 @@
                                           </PersistentState>
                                         </value>
                                       </entry>
+                                      <entry key="image">
+                                        <value>
+                                          <PersistentState>
+                                            <option name="values">
+                                              <map>
+                                                <entry key="color" value="000000" />
+                                                <entry key="trimmed" value="true" />
+                                              </map>
+                                            </option>
+                                          </PersistentState>
+                                        </value>
+                                      </entry>
+                                    </map>
+                                  </option>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="assetType" value="IMAGE" />
+                                      <entry key="iconShape" value="CIRCLE" />
+                                      <entry key="imageAsset" value="$PROJECT_DIR$/app/src/main/res/drawable-v24/app_icon_v2.png" />
+                                      <entry key="outputName" value="java4kids_ic_launcher" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -139,6 +158,11 @@
                             </entry>
                           </map>
                         </option>
+                        <option name="values">
+                          <map>
+                            <entry key="outputIconType" value="LAUNCHER_LEGACY" />
+                          </map>
+                        </option>
                       </PersistentState>
                     </value>
                   </entry>
@@ -162,7 +186,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material_design_icons/navigation/ic_close_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material_design_icons/image/ic_blur_circular_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -172,7 +196,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_close_black_24dp" />
+                            <entry key="outputName" value="ic_blur_circular_black_24dp" />
                             <entry key="sourceFile" value="$USER_HOME$" />
                           </map>
                         </option>

@@ -7,13 +7,13 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserInfoUpdate extends StringRequest {
+public class UserInfoUpdateRequest extends StringRequest {
 
     private static final String USER_INFO_UPDATE_URL = "http://sinyeelam.com/java4Kids/updateUserInfo.php";
     private Map<String, String> params;
 
-    public UserInfoUpdate(int userID, int level, int totalScore, int userIcon,
-                            Response.Listener<String> listener, Response.ErrorListener errorListener){
+    public UserInfoUpdateRequest(int userID, int level, int totalScore, int userIcon,
+                                 Response.Listener<String> listener, Response.ErrorListener errorListener){
 
         super(Request.Method.POST, USER_INFO_UPDATE_URL, listener, errorListener);
 

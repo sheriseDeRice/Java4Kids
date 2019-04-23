@@ -1,20 +1,15 @@
 package com.example.sherisesinyeelam.java4kids.GamesPage.ChoosingGame;
 
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
+import com.example.sherisesinyeelam.java4kids.GamesPage.GameProgressHandler;
 import com.example.sherisesinyeelam.java4kids.LocalSharedPrefManager;
-import com.example.sherisesinyeelam.java4kids.LoginAndRegister.RequestHandler;
-import com.example.sherisesinyeelam.java4kids.ProgressPage.UserLessonProgressUpdate;
 import com.example.sherisesinyeelam.java4kids.R;
 import com.example.sherisesinyeelam.java4kids.SharedPrefManager;
-import com.example.sherisesinyeelam.java4kids.UserProfilePage.UserInfoUpdate;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,12 +24,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.Calendar;
 
-public class TheChosingGameActivity extends AppCompatActivity implements View.OnClickListener {
+public class Lesson1_inheritance_Activity extends AppCompatActivity implements View.OnClickListener {
 
     Toolbar mToolbar;
     Dialog dialog;
@@ -44,7 +36,7 @@ public class TheChosingGameActivity extends AppCompatActivity implements View.On
     LinearLayout linearLayout1_btn, linearLayout2_btn;
     TextView score_and_answered;
 
-    Lesson1_Inherirtance lesson1 = new Lesson1_Inherirtance();
+    Lesson1_content lesson1 = new Lesson1_content();
 
     int current_question = 1;
     int number_of_questions = 5;
@@ -122,7 +114,6 @@ public class TheChosingGameActivity extends AppCompatActivity implements View.On
         }
     }
 
-    // if correct, answered = true, if wrong, .add(questionNum) back to the arraylist.
     public void checkAnswer(){
         if(userChoice == lesson1.answers().get(current_question)){
             answeredCorrectly++;
@@ -160,7 +151,7 @@ public class TheChosingGameActivity extends AppCompatActivity implements View.On
         // go to next question after clicking one answer button.
         checkAnswer();
         if(current_question > number_of_questions){
-            Toast.makeText(TheChosingGameActivity.this, "Level 1 complete!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(Lesson1_inheritance_Activity.this, "Stage clear!", Toast.LENGTH_SHORT).show();
             // show new popup, informing the stage clear and score and number of wrong and correct and store details.
             stageSummary_popUpOpen();
         } else {
@@ -246,17 +237,23 @@ public class TheChosingGameActivity extends AppCompatActivity implements View.On
                 } else if (answeredCorrectly > 0){
                     l1Completeness = "In progress";
                 }
-                if(SharedPrefManager.getInstance(TheChosingGameActivity.this).checkLoginOrNot()){
-                    onScoreUpdateDB(v);
-                    onProgressUpdate(l1Completeness);
+                if(SharedPrefManager.getInstance(Lesson1_inheritance_Activity.this).checkLoginOrNot()){
+//                    onScoreUpdateDB(v);
+//                    onProgressUpdate(l1Completeness);
+                    GameProgressHandler gameProgressHandler = new GameProgressHandler(Lesson1_inheritance_Activity.this, progressDialog);
+                    gameProgressHandler.onScoreUpdateDB(v, score);
+                    String l2Completeness = SharedPrefManager.getInstance(Lesson1_inheritance_Activity.this).getLesson2Complete();
+                    gameProgressHandler.onProgressUpdate(l1Completeness, l2Completeness);
+                    Toast.makeText(Lesson1_inheritance_Activity.this, "Total Score updated", Toast.LENGTH_SHORT).show();
+                    onBackPressed();
                 } else {
                     // do local update.
-                    int currentScore = LocalSharedPrefManager.getInstance(TheChosingGameActivity.this).getUserTotalScore();
-                    LocalSharedPrefManager.getInstance(TheChosingGameActivity.this)
+                    int currentScore = LocalSharedPrefManager.getInstance(Lesson1_inheritance_Activity.this).getUserTotalScore();
+                    LocalSharedPrefManager.getInstance(Lesson1_inheritance_Activity.this)
                             .userScoreUpdate(currentScore+score);
-                    LocalSharedPrefManager.getInstance(TheChosingGameActivity.this)
+                    LocalSharedPrefManager.getInstance(Lesson1_inheritance_Activity.this)
                             .lesson1ProgressUpdate(l1Completeness);
-                    Toast.makeText(TheChosingGameActivity.this, "Total Score updated", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Lesson1_inheritance_Activity.this, "Total Score updated", Toast.LENGTH_SHORT).show();
                     onBackPressed();
                 }
             }
@@ -305,112 +302,6 @@ public class TheChosingGameActivity extends AppCompatActivity implements View.On
         return super.onOptionsItemSelected(item);
     }
 
-    // update the new score to the database when completed the quiz.
-    public void onScoreUpdateDB(View v){
-        progressDialog.setMessage("updating your score...");
-        progressDialog.show();
-
-        Response.Listener<String> responseListener = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                progressDialog.dismiss();
-                try{
-                    JSONObject jsonResponse = new JSONObject(response);
-
-                    if(!jsonResponse.getBoolean("error")){
-                        // if error is false mean user successfully update score
-                        if(SharedPrefManager.getInstance(TheChosingGameActivity.this).checkLoginOrNot()){
-                            //if user already logged in.
-                            SharedPrefManager.getInstance(TheChosingGameActivity.this)
-                                    .userScoreUpdate(jsonResponse.getInt("totalScore"));
-                        }
-                        onBackPressed();
-                    } else {
-                        Toast.makeText(TheChosingGameActivity.this, jsonResponse.getString("message"), Toast.LENGTH_LONG).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        Response.ErrorListener errorListener = new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                progressDialog.dismiss();
-                Toast.makeText(TheChosingGameActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();;
-            }
-        };
-        // cancel the progress dialog if it runs overtime.
-        Runnable progressRunnable = new Runnable() {
-            @Override
-            public void run() {
-                progressDialog.cancel();
-            }
-        };
-        Handler pdCanceller = new Handler();
-        pdCanceller.postDelayed(progressRunnable, 5000);
-
-        int useriD = SharedPrefManager.getInstance(this).getUserID();
-        int current_level = SharedPrefManager.getInstance(this).getUserLevel();
-        int currentScore = SharedPrefManager.getInstance(this).getUserTotalScore();
-        int userIcon = SharedPrefManager.getInstance(this).getUserIcon();
-        UserInfoUpdate userInfoUpdate = new UserInfoUpdate(useriD, current_level,currentScore+score, userIcon, responseListener, errorListener);
-        RequestHandler.getInstance(TheChosingGameActivity.this).addToRequestQueue(userInfoUpdate);
-    }
-
-    // update lesson progress to the database and local preferences: not started, in progress, completed
-    public void onProgressUpdate(String l1Completeness){
-        progressDialog.setMessage("updating your progress...");
-        progressDialog.show();
-
-        Response.Listener<String> responseListener = new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                progressDialog.dismiss();
-                try{
-                    JSONObject jsonResponse = new JSONObject(response);
-
-                    if(!jsonResponse.getBoolean("error")){
-                        // if error is false mean user successfully update score
-                        if(SharedPrefManager.getInstance(TheChosingGameActivity.this).checkLoginOrNot()){
-                            //if user already logged in.
-                            SharedPrefManager.getInstance(TheChosingGameActivity.this)
-                                    .lesson1ProgressUpdate(jsonResponse.getString("lesson1"));
-                            SharedPrefManager.getInstance(TheChosingGameActivity.this)
-                                    .lesson2ProgressUpdate(jsonResponse.getString("lesson2"));
-                        }
-                    } else {
-                        Toast.makeText(TheChosingGameActivity.this, jsonResponse.getString("message"), Toast.LENGTH_LONG).show();
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        };
-        Response.ErrorListener errorListener = new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                progressDialog.dismiss();
-                Toast.makeText(TheChosingGameActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();;
-            }
-        };
-
-        // cancel the progress dialog if it runs overtime.
-        Runnable progressRunnable = new Runnable() {
-            @Override
-            public void run() {
-                progressDialog.cancel();
-            }
-        };
-        Handler pdCanceller = new Handler();
-        pdCanceller.postDelayed(progressRunnable, 5000);
-
-        int useriD = SharedPrefManager.getInstance(TheChosingGameActivity.this).getUserID();
-        String l2Complete = SharedPrefManager.getInstance(TheChosingGameActivity.this).getLesson2Complete();
-        UserLessonProgressUpdate updateUserProgress = new UserLessonProgressUpdate(useriD, l1Completeness,l2Complete, responseListener, errorListener);
-        RequestHandler.getInstance(TheChosingGameActivity.this).addToRequestQueue(updateUserProgress);
-    }
-
     // auto change background according to the time (day/night). These are default background.
     public void autoChangeBackground(){
 
@@ -422,7 +313,7 @@ public class TheChosingGameActivity extends AppCompatActivity implements View.On
                 try {
                     while (!isInterrupted()) {
 
-                        TheChosingGameActivity.super.runOnUiThread(new Runnable() {
+                        Lesson1_inheritance_Activity.super.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 Calendar c = Calendar.getInstance();

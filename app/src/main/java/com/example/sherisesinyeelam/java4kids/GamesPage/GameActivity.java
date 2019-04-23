@@ -9,13 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 
+import com.example.sherisesinyeelam.java4kids.GamesPage.ChoosingGame.Lesson1_inheritance_Activity;
 import com.example.sherisesinyeelam.java4kids.R;
-import com.example.sherisesinyeelam.java4kids.GamesPage.ChoosingGame.TheChosingGameActivity;
-import com.example.sherisesinyeelam.java4kids.GamesPage.DragAndDropGame.TheDragAndDropGameActivity;
+import com.example.sherisesinyeelam.java4kids.GamesPage.DragAndDropGame.Lesson2_VariableTypes_Activity;
 
 public class GameActivity extends Fragment {
 
-    ImageButton snake_lv1, chosing_level1, matching_level1, linking_level1, dragNdrop_level1;
+    ImageButton chosing_lesson1, dragNdrop_lesson2, matching_level1, linking_level1, snake_lv1;
 
     @Nullable
     @Override
@@ -28,20 +28,20 @@ public class GameActivity extends Fragment {
         super.onActivityCreated(savedInstanceState);
         getActivity().setTitle("Games");
 
-        chosing_level1 = (ImageButton) getView().findViewById(R.id.chosing_level1);
-        chosing_level1.setOnClickListener(new View.OnClickListener() {
+        chosing_lesson1 = (ImageButton) getView().findViewById(R.id.chosing_lesson1);
+        chosing_lesson1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), TheChosingGameActivity.class);
+                Intent intent = new Intent(getActivity(), Lesson1_inheritance_Activity.class);
                 startActivity(intent);
             }
         });
 
-        dragNdrop_level1 = (ImageButton) getView().findViewById(R.id.drag_and_drop_level1);
-        dragNdrop_level1.setOnClickListener(new View.OnClickListener() {
+        dragNdrop_lesson2 = (ImageButton) getView().findViewById(R.id.drag_and_drop_lesson2);
+        dragNdrop_lesson2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), TheDragAndDropGameActivity.class);
+                Intent intent = new Intent(getActivity(), Lesson2_VariableTypes_Activity.class);
                 startActivity(intent);
             }
         });

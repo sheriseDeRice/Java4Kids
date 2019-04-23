@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FriendsPage.FriendsActivity">
+    tools:context=".TheWorldLeaderBoard.LeaderBoardActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,25 +26,7 @@
                 android:padding="5dp"
                 android:layout_weight="1">
 
-                <include layout = "@layout/content_friend_list"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="0.01"
-                android:gravity="center|bottom|end">
-
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/fab"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/fab_margin"
-                    android:tint="@android:color/white"
-                    app:backgroundTint="@color/Green"
-                    app:srcCompat="@drawable/ic_person_add_black_24dp" />
+                <include layout = "@layout/content_all_user_list"/>
 
             </LinearLayout>
         </LinearLayout>

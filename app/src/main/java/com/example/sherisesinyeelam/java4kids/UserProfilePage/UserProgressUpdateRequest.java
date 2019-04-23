@@ -1,4 +1,4 @@
-package com.example.sherisesinyeelam.java4kids.ProgressPage;
+package com.example.sherisesinyeelam.java4kids.UserProfilePage;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
@@ -7,13 +7,13 @@ import com.example.sherisesinyeelam.java4kids.UserProfilePage.LevelUpTable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserLessonProgressUpdate extends StringRequest {
+public class UserProgressUpdateRequest extends StringRequest {
 
     private static final String USER_INFO_UPDATE_URL = "http://sinyeelam.com/java4Kids/updateUserProgress.php";
     private Map<String, String> params;
 
-    public UserLessonProgressUpdate(int userID, String l1Completeness, String l2Completeness,
-                                    Response.Listener<String> listener, Response.ErrorListener errorListener){
+    public UserProgressUpdateRequest(int userID, String l1Completeness, String l2Completeness,
+                                     Response.Listener<String> listener, Response.ErrorListener errorListener){
 
         super(Method.POST, USER_INFO_UPDATE_URL, listener, errorListener);
 

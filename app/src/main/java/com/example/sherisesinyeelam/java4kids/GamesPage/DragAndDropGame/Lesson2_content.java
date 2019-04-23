@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Lesson2_VariableTypes {
+public class Lesson2_content {
 
     public int lesson_icon(){
         return R.drawable.variables_icon;

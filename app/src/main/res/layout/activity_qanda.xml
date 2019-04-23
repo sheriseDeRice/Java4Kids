@@ -1,141 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="350dp"
-    android:layout_height="600dp"
-    android:layout_gravity="center"
-    android:background="@drawable/popup_background"
-    android:orientation="vertical"
-    android:paddingBottom="10dp"
-    android:paddingLeft="10dp"
-    android:paddingRight="10dp">
+    android:layout_height="550dp"
+    android:layout_gravity="center">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="3dp"
-        android:gravity="center|top|end">
-        <TextView
-            android:id="@+id/close_popup"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:text="@string/x"
-            android:textColor="@color/White"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_weight="1"
-        android:background="@drawable/popup_content_background"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:paddingTop="5dp"
-            android:text="@string/q_and_a"
-            android:textSize="20sp"
-            android:textColor="@color/Black"
-            android:textStyle="bold" />
-
-        <ScrollView
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/popup_background"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center|top|end">
+            <TextView
+                android:id="@+id/close_popup"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:text="@string/x"
+                android:textColor="@color/White"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+        </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/popup_content_background"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <com.ms.square.android.expandabletextview.ExpandableTextView
-                    xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/expand_text_view_q1"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="5dp"
+                android:text="@string/q_and_a"
+                android:textSize="20sp"
+                android:textColor="@color/Black"
+                android:textStyle="bold" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    expandableTextView:maxCollapsedLines="1"
-                    expandableTextView:animDuration="200">
-                    <TextView
-                        android:id="@id/expandable_text"
+                    android:orientation="vertical">
+                    <com.ms.square.android.expandabletextview.ExpandableTextView
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/expand_text_view_q1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:textSize="16sp"
-                        android:textColor="#666666" />
+                        android:layout_marginTop="20dp"
+                        expandableTextView:maxCollapsedLines="1"
+                        expandableTextView:animDuration="200">
+                        <TextView
+                            android:id="@id/expandable_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:textSize="16sp"
+                            android:textColor="#666666" />
 
-                    <ImageButton
-                        android:id="@id/expand_collapse"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="16dp"
-                        android:layout_gravity="right|bottom"
-                        android:background="@android:color/transparent"/>
-                </com.ms.square.android.expandabletextview.ExpandableTextView>
+                        <ImageButton
+                            android:id="@id/expand_collapse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="16dp"
+                            android:layout_gravity="right|bottom"
+                            android:background="@android:color/transparent"/>
+                    </com.ms.square.android.expandabletextview.ExpandableTextView>
 
-                <com.ms.square.android.expandabletextview.ExpandableTextView
-                    xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/expand_text_view_q2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    expandableTextView:maxCollapsedLines="1"
-                    expandableTextView:animDuration="200">
-                    <TextView
-                        android:id="@id/expandable_text"
+                    <com.ms.square.android.expandabletextview.ExpandableTextView
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/expand_text_view_q2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:textSize="16sp"
-                        android:textColor="#666666" />
+                        android:layout_marginTop="20dp"
+                        expandableTextView:maxCollapsedLines="1"
+                        expandableTextView:animDuration="200">
+                        <TextView
+                            android:id="@id/expandable_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:textSize="16sp"
+                            android:textColor="#666666" />
 
-                    <ImageButton
-                        android:id="@id/expand_collapse"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="16dp"
-                        android:layout_gravity="right|bottom"
-                        android:background="@android:color/transparent"/>
-                </com.ms.square.android.expandabletextview.ExpandableTextView>
+                        <ImageButton
+                            android:id="@id/expand_collapse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="16dp"
+                            android:layout_gravity="right|bottom"
+                            android:background="@android:color/transparent"/>
+                    </com.ms.square.android.expandabletextview.ExpandableTextView>
 
-                <com.ms.square.android.expandabletextview.ExpandableTextView
-                    xmlns:android="http://schemas.android.com/apk/res/android"
-                    xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/expand_text_view_q3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    expandableTextView:maxCollapsedLines="2"
-                    expandableTextView:animDuration="200">
-                    <TextView
-                        android:id="@id/expandable_text"
+                    <com.ms.square.android.expandabletextview.ExpandableTextView
+                        xmlns:android="http://schemas.android.com/apk/res/android"
+                        xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/expand_text_view_q3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:textSize="16sp"
-                        android:textColor="#666666" />
+                        android:layout_marginTop="20dp"
+                        expandableTextView:maxCollapsedLines="2"
+                        expandableTextView:animDuration="200">
+                        <TextView
+                            android:id="@id/expandable_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:textSize="16sp"
+                            android:textColor="#666666" />
 
-                    <ImageButton
-                        android:id="@id/expand_collapse"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="16dp"
-                        android:layout_gravity="right|bottom"
-                        android:background="@android:color/transparent"/>
-                </com.ms.square.android.expandabletextview.ExpandableTextView>
-            </LinearLayout>
-        </ScrollView>
+                        <ImageButton
+                            android:id="@id/expand_collapse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="16dp"
+                            android:layout_gravity="right|bottom"
+                            android:background="@android:color/transparent"/>
+                    </com.ms.square.android.expandabletextview.ExpandableTextView>
+                </LinearLayout>
+            </ScrollView>
 
+        </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

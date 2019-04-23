@@ -1,5 +1,6 @@
 package com.example.sherisesinyeelam.java4kids;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -9,6 +10,7 @@ import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,8 +32,6 @@ import com.example.sherisesinyeelam.java4kids.ProgressPage.GetUserLessonProgress
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Calendar;
-
 public class StartAppActivity extends AppCompatActivity {
 
     private Button startApp, login;
@@ -47,7 +47,28 @@ public class StartAppActivity extends AppCompatActivity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_app);
+        //handleIntent();
+        startAppContent();
+    }
 
+//    @Override
+//    protected void onNewIntent(Intent intent) {
+//        super.onNewIntent(intent);
+//        setIntent(intent);
+//        handleIntent();
+//    }
+//
+//    private void handleIntent(){
+//        // ATTENTION: This was auto-generated to handle app links.
+//        Intent appLinkIntent = getIntent();
+//        String appLinkAction = appLinkIntent.getAction();
+//        Uri appLinkData = appLinkIntent.getData();
+//        if(appLinkAction != null){
+//            startAppContent();
+//        }
+//    }
+
+    public void startAppContent(){
         progressDialog = new ProgressDialog(StartAppActivity.this);
         appVersion = (TextView) findViewById(R.id.app_version);
         startApp = (Button) findViewById(R.id.start_app);
@@ -55,9 +76,9 @@ public class StartAppActivity extends AppCompatActivity {
         startApp_default = (LinearLayout) findViewById(R.id.start_app_default);
         startApp_login_form = (LinearLayout) findViewById(R.id.start_app_login);
 
-        appVersion.setText("version 0.0.1");
+        appVersion.setText("version 0.0.3");
 
-        if(SharedPrefManager.getInstance(StartAppActivity.this).checkLoginOrNot()){
+        if (SharedPrefManager.getInstance(StartAppActivity.this).checkLoginOrNot()) {
             //if user already logged in.
             login.setVisibility(View.INVISIBLE);
         }
@@ -65,12 +86,10 @@ public class StartAppActivity extends AppCompatActivity {
         startApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkInternet() != false) {
+                if (checkInternet() != false) {
                     Intent intent = new Intent(StartAppActivity.this, NavigationDrawer.class);
                     // check if user is first time enter the app.
-                    if(!LocalSharedPrefManager.getInstance(StartAppActivity.this).checkLoginOrNot()){
-                        LocalSharedPrefManager.getInstance(StartAppActivity.this)
-                                .guestLogin(0, "Guest",1, 0, R.drawable.default_icon_foreground, 1);
+                    if (!LocalSharedPrefManager.getInstance(StartAppActivity.this).checkLoginOrNot()) {
                         setNickname(intent);
                     } else {
                         // used for testing when error
@@ -86,7 +105,7 @@ public class StartAppActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(checkInternet() != false) {
+                if (checkInternet() != false) {
                     startApp_default.setVisibility(View.GONE);
                     startApp_login_form.setVisibility(View.VISIBLE);
                     startAppLoginActivity();
@@ -106,16 +125,21 @@ public class StartAppActivity extends AppCompatActivity {
         // specifying input type
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         builder.setView(input);
-
         // button response
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if(LocalSharedPrefManager.getInstance(StartAppActivity.this).checkLoginOrNot()) {
+                //if(LocalSharedPrefManager.getInstance(StartAppActivity.this).checkLoginOrNot()) {
+                if(!input.getText().toString().equals("")) {
+                    LocalSharedPrefManager.getInstance(StartAppActivity.this)
+                            .guestLogin(0, "Guest", 1, 0, R.drawable.default_icon_foreground, 1);
                     LocalSharedPrefManager.getInstance(StartAppActivity.this).setNickname(input.getText().toString());
                     Toast.makeText(StartAppActivity.this, "Welcome! :)", Toast.LENGTH_SHORT).show();
                     startActivity(intent);
+                } else {
+                    Toast.makeText(StartAppActivity.this, "Please enter your nickname", Toast.LENGTH_LONG).show();
                 }
+                //}
             }
         });
         builder.show();
@@ -158,6 +182,7 @@ public class StartAppActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     // connect to the database to check if user exist and if password correct.

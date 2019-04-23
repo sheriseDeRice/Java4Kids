@@ -8,19 +8,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <LinearLayout
-                android:layout_width="380dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_vertical|center_horizontal"
                 android:background="#8FFF"
                 android:orientation="vertical"
-                android:layout_marginTop="10dp"
                 android:padding="10dp">
 
                 <TextView
@@ -183,7 +183,7 @@
                     android:layout_weight="1"
                     tools:targetApi="o">
                     <ImageButton
-                        android:id="@+id/chosing_level1"
+                        android:id="@+id/chosing_lesson1"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -191,7 +191,7 @@
                         android:scaleType="fitXY"
                         android:background="@null"
                         android:adjustViewBounds="true"
-                        android:contentDescription="@string/chose_level1_icon" />
+                        android:contentDescription="@string/inheritance_icon" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -231,7 +231,7 @@
                     android:gravity="center"
                     android:padding="5dp">
                     <ImageButton
-                        android:id="@+id/drag_and_drop_level1"
+                        android:id="@+id/drag_and_drop_lesson2"
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -244,7 +244,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
-                        android:text="@string/variables"
+                        android:text="@string/variables_types"
                         android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>

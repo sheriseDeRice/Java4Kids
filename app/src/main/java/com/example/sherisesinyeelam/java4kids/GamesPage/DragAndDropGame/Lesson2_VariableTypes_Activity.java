@@ -2,12 +2,13 @@ package com.example.sherisesinyeelam.java4kids.GamesPage.DragAndDropGame;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.example.sherisesinyeelam.java4kids.GamesPage.GameProgressHandler;
 import com.example.sherisesinyeelam.java4kids.LocalSharedPrefManager;
 import com.example.sherisesinyeelam.java4kids.LoginAndRegister.RequestHandler;
-import com.example.sherisesinyeelam.java4kids.ProgressPage.UserLessonProgressUpdate;
+import com.example.sherisesinyeelam.java4kids.UserProfilePage.UserProgressUpdateRequest;
 import com.example.sherisesinyeelam.java4kids.R;
 import com.example.sherisesinyeelam.java4kids.SharedPrefManager;
-import com.example.sherisesinyeelam.java4kids.UserProfilePage.UserInfoUpdate;
+import com.example.sherisesinyeelam.java4kids.UserProfilePage.UserInfoUpdateRequest;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -37,7 +38,7 @@ import org.json.JSONObject;
 
 import java.util.Calendar;
 
-public class TheDragAndDropGameActivity extends AppCompatActivity {
+public class Lesson2_VariableTypes_Activity extends AppCompatActivity {
 
     Dialog dialog;
     ProgressDialog progressDialog;
@@ -46,7 +47,7 @@ public class TheDragAndDropGameActivity extends AppCompatActivity {
     Button button1, button2, button3, button4, button5; // the place where to drop the piece.
     Button piece1, piece2, piece3, piece4, piece5; // the piece that to be dragged.
 
-    Lesson2_VariableTypes lesson2 = new Lesson2_VariableTypes();
+    Lesson2_content lesson2 = new Lesson2_content();
 
     int countPlaced = 0;
     int score = 0;
@@ -288,22 +289,22 @@ public class TheDragAndDropGameActivity extends AppCompatActivity {
 //                        dropingArea.setText("Wrong Answer!");
 //                        // can also add sound:
 //                        // - create "raw" directory in res, then paste the mp3.
-//                        // - do MediaPlayer mediaPlayer = MediaPlayer.create(TheDragAndDropGameActivity.this, R.raw.wrongSound);
+//                        // - do MediaPlayer mediaPlayer = MediaPlayer.create(Lesson2_VariableTypes_Activity.this, R.raw.wrongSound);
 //                        // - mediaPlayer.start();
 //                    }
 
                     // new version
                     if(checkAnswer( view, v) == true) {
-                        Toast.makeText(TheDragAndDropGameActivity.this, "Correct", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Lesson2_VariableTypes_Activity.this, "Correct", Toast.LENGTH_SHORT).show();
                         countPlaced++;
                     } else {
-                        Toast.makeText(TheDragAndDropGameActivity.this, "Wrong Answer, try again", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Lesson2_VariableTypes_Activity.this, "Wrong Answer, try again", Toast.LENGTH_SHORT).show();
                     }
                     break;
             }
             // counting if all options have been placed.
             if (countPlaced == 5) {
-                Toast.makeText(TheDragAndDropGameActivity.this, "Well Done! Next question :)", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Lesson2_VariableTypes_Activity.this, "Well Done! Next question :)", Toast.LENGTH_SHORT).show();
                 countPlaced = 0;
                 answeredCorrectly++;
                 currentQuestionNumber++;
@@ -311,7 +312,7 @@ public class TheDragAndDropGameActivity extends AppCompatActivity {
                     setLayout();
                     setQuestions();
                 } else {
-                    Toast.makeText(TheDragAndDropGameActivity.this, "Lesson Complete !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Lesson2_VariableTypes_Activity.this, "Stage clear!!", Toast.LENGTH_SHORT).show();
                     stageSummary_popUpOpen();
                 }
             }
@@ -395,17 +396,23 @@ public class TheDragAndDropGameActivity extends AppCompatActivity {
                 } else if (answeredCorrectly > 0){
                     l2Completeness = "In progress";
                 }
-                if(SharedPrefManager.getInstance(TheDragAndDropGameActivity.this).checkLoginOrNot()){
-                    onScoreUpdateDB(v);
-                    onProgressUpdate(l2Completeness);
+                if(SharedPrefManager.getInstance(Lesson2_VariableTypes_Activity.this).checkLoginOrNot()){
+//                    onScoreUpdateDB(v);
+//                    onProgressUpdate(l2Completeness);
+                    GameProgressHandler gameProgressHandler = new GameProgressHandler(Lesson2_VariableTypes_Activity.this, progressDialog);
+                    gameProgressHandler.onScoreUpdateDB(v, score);
+                    String l1Completeness = SharedPrefManager.getInstance(Lesson2_VariableTypes_Activity.this).getLesson1Complete();
+                    gameProgressHandler.onProgressUpdate(l1Completeness,l2Completeness);
+                    Toast.makeText(Lesson2_VariableTypes_Activity.this, "Total Score updated", Toast.LENGTH_SHORT).show();
+                    onBackPressed();
                 } else {
                     // do local update.
-                    int currentScore = LocalSharedPrefManager.getInstance(TheDragAndDropGameActivity.this).getUserTotalScore();
-                    LocalSharedPrefManager.getInstance(TheDragAndDropGameActivity.this)
+                    int currentScore = LocalSharedPrefManager.getInstance(Lesson2_VariableTypes_Activity.this).getUserTotalScore();
+                    LocalSharedPrefManager.getInstance(Lesson2_VariableTypes_Activity.this)
                             .userScoreUpdate(currentScore+score);
-                    LocalSharedPrefManager.getInstance(TheDragAndDropGameActivity.this)
+                    LocalSharedPrefManager.getInstance(Lesson2_VariableTypes_Activity.this)
                             .lesson2ProgressUpdate(l2Completeness);
-                    Toast.makeText(TheDragAndDropGameActivity.this, "Total Score updated", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Lesson2_VariableTypes_Activity.this, "Total Score updated", Toast.LENGTH_SHORT).show();
                     onBackPressed();
                 }
             }
@@ -424,7 +431,7 @@ public class TheDragAndDropGameActivity extends AppCompatActivity {
             public void run() {
                 try {
                     while (!isInterrupted()) {
-                        TheDragAndDropGameActivity.super.runOnUiThread(new Runnable() {
+                        Lesson2_VariableTypes_Activity.super.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
                                 Calendar c = Calendar.getInstance();
@@ -498,14 +505,14 @@ public class TheDragAndDropGameActivity extends AppCompatActivity {
 
                     if(!jsonResponse.getBoolean("error")){
                         // if error is false mean user successfully update score
-                        if(SharedPrefManager.getInstance(TheDragAndDropGameActivity.this).checkLoginOrNot()){
+                        if(SharedPrefManager.getInstance(Lesson2_VariableTypes_Activity.this).checkLoginOrNot()){
                             //if user already logged in.
-                            SharedPrefManager.getInstance(TheDragAndDropGameActivity.this)
+                            SharedPrefManager.getInstance(Lesson2_VariableTypes_Activity.this)
                                     .userScoreUpdate(jsonResponse.getInt("totalScore"));
                         }
                         onBackPressed();
                     } else {
-                        Toast.makeText(TheDragAndDropGameActivity.this, jsonResponse.getString("message"), Toast.LENGTH_LONG).show();
+                        Toast.makeText(Lesson2_VariableTypes_Activity.this, jsonResponse.getString("message"), Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -516,7 +523,7 @@ public class TheDragAndDropGameActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
-                Toast.makeText(TheDragAndDropGameActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();;
+                Toast.makeText(Lesson2_VariableTypes_Activity.this, error.getMessage(), Toast.LENGTH_LONG).show();;
             }
         };
         // cancel the progress dialog if it runs overtime.
@@ -533,8 +540,8 @@ public class TheDragAndDropGameActivity extends AppCompatActivity {
         int current_level = SharedPrefManager.getInstance(this).getUserLevel();
         int currentScore = SharedPrefManager.getInstance(this).getUserTotalScore();
         int userIcon = SharedPrefManager.getInstance(this).getUserIcon();
-        UserInfoUpdate userInfoUpdate = new UserInfoUpdate(useriD, current_level, currentScore+score, userIcon, responseListener, errorListener);
-        RequestHandler.getInstance(TheDragAndDropGameActivity.this).addToRequestQueue(userInfoUpdate);
+        UserInfoUpdateRequest userInfoUpdateRequest = new UserInfoUpdateRequest(useriD, current_level, currentScore+score, userIcon, responseListener, errorListener);
+        RequestHandler.getInstance(Lesson2_VariableTypes_Activity.this).addToRequestQueue(userInfoUpdateRequest);
     }
 
     // update user lesson progress.
@@ -551,15 +558,15 @@ public class TheDragAndDropGameActivity extends AppCompatActivity {
 
                     if(!jsonResponse.getBoolean("error")){
                         // if error is false mean user successfully update score
-                        if(SharedPrefManager.getInstance(TheDragAndDropGameActivity.this).checkLoginOrNot()){
+                        if(SharedPrefManager.getInstance(Lesson2_VariableTypes_Activity.this).checkLoginOrNot()){
                             //if user already logged in.
-                            SharedPrefManager.getInstance(TheDragAndDropGameActivity.this)
+                            SharedPrefManager.getInstance(Lesson2_VariableTypes_Activity.this)
                                     .lesson1ProgressUpdate(jsonResponse.getString("lesson1"));
-                            SharedPrefManager.getInstance(TheDragAndDropGameActivity.this)
+                            SharedPrefManager.getInstance(Lesson2_VariableTypes_Activity.this)
                                     .lesson2ProgressUpdate(jsonResponse.getString("lesson2"));
                         }
                     } else {
-                        Toast.makeText(TheDragAndDropGameActivity.this, jsonResponse.getString("message"), Toast.LENGTH_LONG).show();
+                        Toast.makeText(Lesson2_VariableTypes_Activity.this, jsonResponse.getString("message"), Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -570,7 +577,7 @@ public class TheDragAndDropGameActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
-                Toast.makeText(TheDragAndDropGameActivity.this, error.getMessage(), Toast.LENGTH_LONG).show();;
+                Toast.makeText(Lesson2_VariableTypes_Activity.this, error.getMessage(), Toast.LENGTH_LONG).show();;
             }
         };
         // cancel the progress dialog if it runs overtime.
@@ -583,10 +590,10 @@ public class TheDragAndDropGameActivity extends AppCompatActivity {
         Handler pdCanceller = new Handler();
         pdCanceller.postDelayed(progressRunnable, 5000);
 
-        int useriD = SharedPrefManager.getInstance(TheDragAndDropGameActivity.this).getUserID();
-        String l1Complete = SharedPrefManager.getInstance(TheDragAndDropGameActivity.this).getLesson1Complete();
-        UserLessonProgressUpdate updateUserProgress = new UserLessonProgressUpdate(useriD, l1Complete,l2Complete, responseListener, errorListener);
-        RequestHandler.getInstance(TheDragAndDropGameActivity.this).addToRequestQueue(updateUserProgress);
+        int useriD = SharedPrefManager.getInstance(Lesson2_VariableTypes_Activity.this).getUserID();
+        String l1Complete = SharedPrefManager.getInstance(Lesson2_VariableTypes_Activity.this).getLesson1Complete();
+        UserProgressUpdateRequest updateUserProgress = new UserProgressUpdateRequest(useriD, l1Complete,l2Complete, responseListener, errorListener);
+        RequestHandler.getInstance(Lesson2_VariableTypes_Activity.this).addToRequestQueue(updateUserProgress);
     }
 
 }

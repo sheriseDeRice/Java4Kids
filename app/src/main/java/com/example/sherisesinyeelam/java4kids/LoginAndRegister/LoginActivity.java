@@ -7,14 +7,12 @@ import com.example.sherisesinyeelam.java4kids.ProgressPage.GetUserLessonProgress
 import com.example.sherisesinyeelam.java4kids.R;
 import com.example.sherisesinyeelam.java4kids.SharedPrefManager;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -143,13 +141,12 @@ public class LoginActivity extends AppCompatActivity {
                 progressDialog.dismiss();
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    Toast.makeText(LoginActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(LoginActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
 
                     if (!jsonObject.getBoolean("error")) {
                         //onSupportNavigateUp();
-
                     } else {
-                        Toast.makeText(LoginActivity.this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(LoginActivity.this, jsonObject.getString("message"), Toast.LENGTH_LONG).show();
                         getUserProgress(userID);
                     }
                 } catch (JSONException e) {
@@ -165,8 +162,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         };
 
-        CreateProgressRequest createProgressRequest = new CreateProgressRequest(userID, responseListener, errorListener);
-        RequestHandler.getInstance(LoginActivity.this).addToRequestQueue(createProgressRequest);
+        CreateFirstTimeProgressRequest createFirstTimeProgressRequest = new CreateFirstTimeProgressRequest(userID, responseListener, errorListener);
+        RequestHandler.getInstance(LoginActivity.this).addToRequestQueue(createFirstTimeProgressRequest);
     }
 
     public void getUserProgress(final int userID){
@@ -177,7 +174,7 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (!jsonObject.getBoolean("error")) {
-                        Toast.makeText(LoginActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(LoginActivity.this, jsonObject.getString("message"), Toast.LENGTH_SHORT).show();
                         SharedPrefManager.getInstance(LoginActivity.this)
                                 .lesson1ProgressUpdate(jsonObject.getString("lesson1"));
                         SharedPrefManager.getInstance(LoginActivity.this)

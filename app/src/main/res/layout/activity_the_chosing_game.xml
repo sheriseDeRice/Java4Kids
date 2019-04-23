@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".GamesPage.ChoosingGame.TheChosingGameActivity">
+    tools:context=".GamesPage.ChoosingGame.Lesson1_inheritance_Activity">
 
     <LinearLayout
         android:layout_width="match_parent"

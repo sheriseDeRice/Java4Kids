@@ -2,6 +2,8 @@ package com.example.sherisesinyeelam.java4kids.LoginAndRegister;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -23,7 +25,8 @@ import java.util.Calendar;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText firstname, lastname, age, email, username, password, pwConfirm;
+    private EditText firstname, lastname, age, email, pwConfirm;
+    private EditText username, password; //TextInputLayout
     private RadioGroup check_gender;
     private RadioButton boy, girl;
     private String gender;
@@ -59,7 +62,7 @@ public class RegisterActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                //password.getEditText().getText().toString();
                 final String pw = password.getText().toString();
                 final String pwCon = pwConfirm.getText().toString();
 
@@ -86,6 +89,59 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
     }
+
+//    private boolean validateEmail(){
+//        String emailInput = email.getText().toString();
+//
+//        if(emailInput.isEmpty()){
+//            email.setError("Field can't be empty.");
+//            return false;
+//        } else if (!emailInput.contains("@") | !emailInput.contains(".")){
+//            email.setError("Invalid email");
+//            return false;
+//        } else {
+//            email.setError(null);
+//            return true;
+//        }
+//    }
+//
+//    private boolean validateUsername(){
+//        String usernameInput = username.getEditText().getText().toString();
+//
+//        if(usernameInput.isEmpty()){
+//            username.setError("Field can't be empty.");
+//            return false;
+//        } else if(usernameInput.length()>10){
+//            username.setError("Username too long");
+//            return false;
+//
+//        } else {
+//            username.setError(null);
+//            return true;
+//        }
+//    }
+//
+//    private boolean validatePassword(){
+//        String passwordInput = password.getEditText().getText().toString();
+//
+//        if(passwordInput.isEmpty()){
+//            password.setError("Field can't be empty.");
+//            return false;
+//        } else if(passwordInput.length()>20){
+//            password.setError("Username too long");
+//            return false;
+//
+//        } else {
+//            password.setError(null);
+//            return true;
+//        }
+//    }
+//
+//    public void confirmInput(View v){
+//        if(!validateEmail()|!validateUsername()|!validatePassword()){
+//            return;
+//        }
+//    }
 
     // gender check
     public void GenderRadioButtonClicked(View view) {

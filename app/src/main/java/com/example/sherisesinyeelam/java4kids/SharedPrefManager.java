@@ -41,19 +41,33 @@ public class SharedPrefManager {
         return instance;
     }
 
-    public boolean userLogin(int id, String firstname, String email, String username, int level, int totalScore, int userIcon){
+    public boolean userLogin(int id, String firstname, String email, String username, int level, int totalScore, int iconID){
         // mode_private mean only within this application can share the preferences.
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        if(userIcon == 0){
-            userIcon = R.drawable.default_icon_foreground;
-        }
         editor.putInt(KEY_USER_ID, id);
         editor.putString(KEY_USER_FIRSTNAME, firstname);
         editor.putString(KEY_USER_EMAIL, email);
         editor.putString(KEY_USERNAME, username);
         editor.putInt(KEY_USER_LEVEL, level);
         editor.putInt(KEY_USER_TOTALSCORE, totalScore);
+
+        int userIcon = 0;
+        if(iconID == 0){
+            userIcon = R.drawable.default_icon_foreground;
+        } else if (iconID == 1) {
+            userIcon = R.drawable.dollify2_sherise;
+        } else if(iconID == 2){
+            userIcon = R.drawable.dollify1;
+        } else if (iconID == 3){
+            userIcon = R.drawable.faceq1;
+        } else if (iconID == 4){
+            userIcon = R.drawable.faceq2;
+        } else if (iconID == 5){
+            userIcon = R.drawable.faceq3;
+        } else {
+            userIcon = R.drawable.default_icon_foreground;
+        }
         editor.putInt(KEY_USER_ICON, userIcon);
 //        editor.putString(KEY_LESSON1, "Not Started");
 //        editor.putString(KEY_LESSON2, "Not Started");
@@ -193,19 +207,27 @@ public class SharedPrefManager {
         editor.apply();
     }
 
-    public void userIconUpdate(int userIcon){
+    public void userIconUpdate(int iconID){
         SharedPreferences sharedPreferences = ctx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        int iconID = 0;
-        if(userIcon == 0){
-            iconID = R.drawable.default_icon_foreground;
-        } else if (userIcon == 1) {
-            iconID = R.drawable.dollify2_sherise;
-        } else if(userIcon == 2){
-            iconID = R.drawable.dollify1;
+        int userIcon = 0;
+        if(iconID == 0){
+            userIcon = R.drawable.default_icon_foreground;
+        } else if (iconID == 1) {
+            userIcon = R.drawable.dollify2_sherise;
+        } else if(iconID == 2){
+            userIcon = R.drawable.dollify1;
+        } else if (iconID == 3){
+            userIcon = R.drawable.faceq1;
+        } else if (iconID == 4){
+            userIcon = R.drawable.faceq2;
+        } else if (iconID == 5){
+            userIcon = R.drawable.faceq3;
+        } else {
+            userIcon = R.drawable.default_icon_foreground;
         }
-        editor.putInt(KEY_USER_ICON, iconID);
+        editor.putInt(KEY_USER_ICON, userIcon);
         editor.apply();
     }
 

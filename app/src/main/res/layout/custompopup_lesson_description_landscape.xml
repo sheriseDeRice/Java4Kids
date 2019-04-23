@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="600dp"
-    android:layout_height="350dp"
+    android:layout_height="310dp"
     android:layout_gravity="center"
     android:background="@drawable/popup_background"
     android:orientation="vertical"
@@ -11,6 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:gravity="center|top|end">
         <TextView
             android:id="@+id/close_popup"

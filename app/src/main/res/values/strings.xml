@@ -36,8 +36,11 @@
     <string name="game_1_chose_the_correct_answer">Game 1: Chose the correct answer</string>
     <string name="game_3_matching_the_pieces">Game 3: Matching the pieces</string>
     <string name="more_games_and_more_programming_topic_will_be_coming_up_soon">More games and more programming topic will be coming up soon!!!</string>
-    <string name="chose_level1_icon">chose_level1_icon</string>
+    <string name="inheritance_icon">inheritance_icon</string>
     <string name="dragdrop_level1_icon">dragdrop_level1_icon</string>
+    <string name="java_programming"><![CDATA[--> Java Programming]]></string>
+    <string name="inheritance">Inheritance</string>
+    <string name="variables_types">Variables Types</string>
 
     <!-- Strings related to Chosing the right answer game -->
     <string name="question">Question</string>
@@ -104,7 +107,7 @@
     <!-- Strings related to Login -->
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="register_me"><![CDATA[Register Me ->]]></string>
+    <string name="register_me"><![CDATA[Make an account]]></string>
 
     <!-- Strings related to Register -->
     <string name="first_name">First name</string>
@@ -112,9 +115,9 @@
     <string name="age">Age</string>
     <string name="boy">Boy</string>
     <string name="girl">Girl</string>
-    <string name="please_fill_in_the_form_below_n_if_you_are_under_10_years_old_please_have_your_parent_to_create_this_account_for_you">* Please fill in the form below.  * If you are under 10 years-old, please have your parent to create this account for you.</string>
+    <string name="please_fill_in_the_form_below_n_if_you_are_under_10_years_old_please_have_your_parent_to_create_this_account_for_you">* Please fill in the form below.  \n* If you are under 10 years-old, please have your parent to create this account for you.</string>
     <string name="privacy">Privacy</string>
-    <string name="register_agreement">I understand that my details will be stored privately and will not be shared to a third party.  The personal information asked above is only for data collection use.</string>
+    <string name="register_agreement">I understand that my details will be stored privately and will not be shared to a third party. The personal information asked above is only for data collection use.</string>
     <string name="register">Register</string>
     <string name="create_new_account">Create New Account :)</string>
     <string name="confirm_password">Confirm password</string>
@@ -141,8 +144,6 @@
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."
     </string>
-    <string name="java_programming"><![CDATA[--> Java Programming]]></string>
-    <string name="inheritance">Inheritance</string>
-    <string name="variables">Variables</string>
+
     <!-- ends here -->
 </resources>

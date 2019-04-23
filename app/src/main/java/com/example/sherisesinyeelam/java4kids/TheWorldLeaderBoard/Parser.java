@@ -1,4 +1,4 @@
-package com.example.sherisesinyeelam.java4kids.FriendsPage.MySQL.getfriendlist;
+package com.example.sherisesinyeelam.java4kids.TheWorldLeaderBoard;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.sherisesinyeelam.java4kids.LocalSharedPrefManager;
 import com.example.sherisesinyeelam.java4kids.SharedPrefManager;
 
 import org.json.JSONArray;
@@ -13,8 +14,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class Parser extends AsyncTask<Void, Void, Integer> {
+public class Parser extends AsyncTask<Void, Void, Integer>{
 
     Context context;
     ListView listView;
@@ -35,7 +37,7 @@ public class Parser extends AsyncTask<Void, Void, Integer> {
         super.onPreExecute();
 
         progressDialog = new ProgressDialog(context);
-        progressDialog.setMessage("Parsing friends ....Please wait");
+        progressDialog.setMessage("Parsing ....Please wait");
         progressDialog.show();
     }
 
@@ -57,8 +59,7 @@ public class Parser extends AsyncTask<Void, Void, Integer> {
             listView.setAdapter(customeAdapter);
 
         } else{
-            //Toast.makeText(context, "cannot parse data", Toast.LENGTH_SHORT).show();
-            Toast.makeText(context, "No friend in your friend list", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "cannot parse data", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -72,46 +73,43 @@ public class Parser extends AsyncTask<Void, Void, Integer> {
             // create json object to hold a single item.
             JSONObject jsonObject = null;
 
-            //old version: friendsList.clear();
             spaceCrafts.clear();
             SpaceCraft spaceCraft = null;
 
-            // retrieve name
-            //int userID = jsonObject.getInt("userID");
-            String name = SharedPrefManager.getInstance(context).getFirstname();
-            String uname = SharedPrefManager.getInstance(context).getUsername();
-            //String email = jsonObject.getString("email");
-            int lv = SharedPrefManager.getInstance(context).getUserLevel();
-            int tScore = SharedPrefManager.getInstance(context).getUserTotalScore();
+            String uname = "";
+            int lv = 0;
+            int tScore = 0;
+            if(LocalSharedPrefManager.getInstance(context).checkLoginOrNot()) {
+                uname = LocalSharedPrefManager.getInstance(context).getNickname();
+                lv = LocalSharedPrefManager.getInstance(context).getUserLevel();
+                tScore = LocalSharedPrefManager.getInstance(context).getUserTotalScore();
 
-            spaceCraft = new SpaceCraft();
-            spaceCraft.setName(name);
-            spaceCraft.setUsername(uname);
-            spaceCraft.setLevel(lv);
-            spaceCraft.setScore(tScore);
+                spaceCraft = new SpaceCraft();
+                spaceCraft.setUsername(uname);
+                spaceCraft.setLevel(lv);
+                spaceCraft.setScore(tScore);
 
-            spaceCrafts.add(spaceCraft);
+                spaceCrafts.add(spaceCraft);
+            }
 
             for (int i = 0; i < jsonArray.length(); i++){
 
                 jsonObject = jsonArray.getJSONObject(i);
 
                 // retrieve name
-                //int userID = jsonObject.getInt("userID");
-                String firstname = jsonObject.getString("firstname");
                 String username = jsonObject.getString("username");
-                //String email = jsonObject.getString("email");
                 int level = jsonObject.getInt("level");
                 int score = jsonObject.getInt("totalScore");
 
                 spaceCraft = new SpaceCraft();
-                spaceCraft.setName(firstname);
                 spaceCraft.setUsername(username);
                 spaceCraft.setLevel(level);
                 spaceCraft.setScore(score);
 
                 spaceCrafts.add(spaceCraft);
             }
+            // sorting the user according to their score.
+            Collections.sort(spaceCrafts);
             return 1;
 
         } catch (JSONException e){
@@ -119,6 +117,8 @@ public class Parser extends AsyncTask<Void, Void, Integer> {
         }
         return 0;
     }
+
+
 }
 
 // ProgrammingWizardsTV (2016). Android MySQL Database 07 : ListView - Select and Show Multiple Columns [online]. available at https://www.youtube.com/watch?v=krLVCo58WEo [accessed 10/03/2019]

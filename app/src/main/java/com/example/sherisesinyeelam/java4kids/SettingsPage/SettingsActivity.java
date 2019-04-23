@@ -8,7 +8,7 @@ import com.example.sherisesinyeelam.java4kids.R;
 import com.example.sherisesinyeelam.java4kids.StartAppActivity;
 import com.example.sherisesinyeelam.java4kids.LoginAndRegister.LoginActivity;
 import com.example.sherisesinyeelam.java4kids.SharedPrefManager;
-import com.example.sherisesinyeelam.java4kids.UserProfilePage.UserInfoUpdate;
+import com.example.sherisesinyeelam.java4kids.UserProfilePage.UserInfoUpdateRequest;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -102,7 +102,6 @@ public class SettingsActivity extends Fragment {
                 SharedPrefManager.getInstance(getActivity()).userLogout();
                 go_login.setVisibility(View.VISIBLE);
                 go_logout.setVisibility(View.INVISIBLE);
-                getActivity().finish();
                 Intent intent = new Intent(getActivity(), StartAppActivity.class);
                 startActivity(intent);
             }
@@ -143,7 +142,8 @@ public class SettingsActivity extends Fragment {
         ImageView current_icon = dialog.findViewById(R.id.current_icon);
 
         if (SharedPrefManager.getInstance(getActivity()).checkLoginOrNot()){
-            current_icon.setImageResource(SharedPrefManager.getInstance(getActivity()).getUserIcon());
+            int iconID = SharedPrefManager.getInstance(getActivity()).getUserIcon();
+            current_icon.setImageResource(iconID);
         } else {
             if (LocalSharedPrefManager.getInstance(getActivity()).checkLoginOrNot()) {
                 current_icon.setImageResource(LocalSharedPrefManager.getInstance(getActivity()).getUserIcon());
@@ -165,19 +165,27 @@ public class SettingsActivity extends Fragment {
                         userIcon = 1;
                     } else if(editIcon.getIcon_to_save() == R.drawable.dollify1){
                         userIcon = 2;
+                    } else if(editIcon.getIcon_to_save() == R.drawable.faceq1){
+                        userIcon = 3;
+                    } else if(editIcon.getIcon_to_save() == R.drawable.faceq2){
+                        userIcon = 4;
+                    } else if(editIcon.getIcon_to_save() == R.drawable.faceq3){
+                        userIcon = 5;
                     }
                     iconUpdate(v, userIcon);
                 } else {
-                    int userIcon = editIcon.getIcon_to_save();
-                    LocalSharedPrefManager.getInstance(getActivity())
-                            .userIconUpdate(userIcon);
-                    Toast.makeText(getActivity(), "Icon updated", Toast.LENGTH_SHORT).show();
+                    if (LocalSharedPrefManager.getInstance(getActivity()).checkLoginOrNot()) {
+                        int userIcon = editIcon.getIcon_to_save();
+                        LocalSharedPrefManager.getInstance(getActivity())
+                                .userIconUpdate(userIcon);
+                        Toast.makeText(getActivity(), "Icon updated", Toast.LENGTH_SHORT).show();
 
-                    NavigationView navigationView = (NavigationView) getActivity().findViewById(R.id.nav_view);
-                    // Change the header
-                    View hView =  navigationView.getHeaderView(0);
-                    ImageView icon = (ImageView) hView.findViewById(R.id.imageView);
-                    icon.setImageResource(LocalSharedPrefManager.getInstance(getActivity()).getUserIcon());
+                        NavigationView navigationView = (NavigationView) getActivity().findViewById(R.id.nav_view);
+                        // Change the header
+                        View hView = navigationView.getHeaderView(0);
+                        ImageView icon = (ImageView) hView.findViewById(R.id.imageView);
+                        icon.setImageResource(LocalSharedPrefManager.getInstance(getActivity()).getUserIcon());
+                    }
                 }
                 dialog.dismiss();
             }
@@ -236,10 +244,9 @@ public class SettingsActivity extends Fragment {
         int useriD = SharedPrefManager.getInstance(getActivity()).getUserID();
         int current_level = SharedPrefManager.getInstance(getActivity()).getUserLevel();
         int currentScore = SharedPrefManager.getInstance(getActivity()).getUserTotalScore();
-        int userIcon = icon_to_save;
 
-        UserInfoUpdate userInfoUpdate = new UserInfoUpdate(useriD, current_level,currentScore, userIcon, responseListener, errorListener);
-        RequestHandler.getInstance(getActivity()).addToRequestQueue(userInfoUpdate);
+        UserInfoUpdateRequest userInfoUpdateRequest = new UserInfoUpdateRequest(useriD, current_level,currentScore, icon_to_save, responseListener, errorListener);
+        RequestHandler.getInstance(getActivity()).addToRequestQueue(userInfoUpdateRequest);
     }
 
 

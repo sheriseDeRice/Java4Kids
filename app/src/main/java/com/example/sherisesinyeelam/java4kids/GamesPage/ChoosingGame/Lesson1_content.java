@@ -5,7 +5,7 @@ import com.example.sherisesinyeelam.java4kids.R;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Lesson1_Inherirtance {
+public class Lesson1_content {
 
     public int lesson_icon(){
         return R.drawable.inheritance_icon;

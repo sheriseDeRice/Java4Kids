@@ -1,5 +1,9 @@
 package com.example.sherisesinyeelam.java4kids.FriendsPage.MySQL.searchEngine;
 
+import android.content.Context;
+
+import com.example.sherisesinyeelam.java4kids.SharedPrefManager;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -10,9 +14,12 @@ import java.util.Iterator;
 public class DataPackager {
 
     String username;
+    Context context;
 
-    public DataPackager(String query){
+    public DataPackager(String query, Context context){
+
         this.username = query;
+        this.context = context;
     }
 
     public String packageData(){
@@ -21,6 +28,7 @@ public class DataPackager {
 
         try{
             jsonObject.put("username", username);
+            jsonObject.put("userID1", SharedPrefManager.getInstance(context).getUserID());
 
             Boolean firstValue = true;
             Iterator iterator = jsonObject.keys();

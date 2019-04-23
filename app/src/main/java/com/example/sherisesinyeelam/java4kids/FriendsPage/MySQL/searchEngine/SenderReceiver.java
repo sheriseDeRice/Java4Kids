@@ -91,7 +91,7 @@ public class SenderReceiver extends AsyncTask<Void,Void,String> {
             OutputStream outputStream = connection.getOutputStream();
 
             BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream));
-            bufferedWriter.write(new DataPackager(query).packageData());
+            bufferedWriter.write(new DataPackager(query, context).packageData());
             bufferedWriter.flush();
 
             // release res

@@ -60,13 +60,13 @@ public class UserProfileActivity extends Fragment {
 
         } else { // user logged in
             // update user information by taking data from the database.
-            int icon = SharedPrefManager.getInstance(getActivity()).getUserIcon();
+            int iconID = SharedPrefManager.getInstance(getActivity()).getUserIcon();
             String username = SharedPrefManager.getInstance(getActivity()).getUsername();
             String firstname = SharedPrefManager.getInstance(getActivity()).getFirstname();
             int lv = SharedPrefManager.getInstance(getActivity()).getUserLevel();
             int totalScore = SharedPrefManager.getInstance(getActivity()).getUserTotalScore();
             int ranks = 1;
-            user_icon.setImageResource(icon);
+            user_icon.setImageResource(iconID);
             user_name.setText(username);
             user_firstname.setText(firstname);
             row_firstname.setVisibility(View.VISIBLE);

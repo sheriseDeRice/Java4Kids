@@ -16,6 +16,12 @@
             android:id="@+id/nav_progress"
             android:icon="@drawable/ic_assignment_black_24dp"
             android:title="Progress" />
+
+        <item
+            android:id="@+id/nav_leading_board"
+            android:icon="@drawable/ic_blur_circular_black_24dp"
+            android:title="Leading Board" />
+
         <item
             android:id="@+id/nav_friends"
             android:icon="@drawable/ic_people_black_24dp"

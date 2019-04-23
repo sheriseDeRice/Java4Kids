@@ -4,14 +4,14 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="10dp"
-    tools:context=".FriendsPage.FriendsActivity"
-    tools:showIn="@layout/activity_friends">
+    tools:context=".TheWorldLeaderBoard.LeaderBoardActivity"
+    tools:showIn="@layout/activity_leaderboard">
 
     <TextView
-        android:id="@+id/friendlist"
+        android:id="@+id/leading_board"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/friends_list"
+        android:text="World Leading Board"
         android:textStyle="bold"
         android:textSize="18sp"/>
 
@@ -19,7 +19,7 @@
         android:id="@+id/table_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/friendlist"
+        android:layout_below="@+id/leading_board"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp">
 
@@ -57,23 +57,12 @@
     </TableRow>
 
     <ListView
-        android:id="@+id/fd_list"
+        android:id="@+id/all_user_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/table_description"/>
-
-    <TextView
-        android:id="@+id/not_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:layout_centerInParent="true"
-        android:layout_centerVertical="true"
-        android:textSize="25dp"
-        android:textStyle="bold"
-        android:text="@string/please_login_to_view"/>
 
     <TextView
         android:id="@+id/noNetwork"
